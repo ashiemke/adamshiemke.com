@@ -1,0 +1,34 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+// Compact overview of a post's numbered sections ("1. …", "2. …"), linking to each.
+interface Props {
+	headings?: MarkdownHeading[];
+	label?: string;
+}
+
+const { headings = [], label = 'Principles' } = Astro.props;
+const NUMBERED = /^(\d+)\.?\s+(.*)$/;
+const items = headings
+	.filter((h) => h.depth === 2)
+	.map((h) => ({ slug: h.slug, m: h.text.match(NUMBERED) }))
+	.filter((i) => i.m)
+	.map((i) => ({ slug: i.slug, num: i.m![1], text: i.m![2] }));
+---
+
+{
+	items.length > 0 && (
+		<nav class="principle-index" aria-label={label}>
+			<ol>
+				{items.map((i) => (
+					<li>
+						<a href={`#${i.slug}`}>
+							<span class="pi-num">{i.num}</span>
+							<span class="pi-text">{i.text}</span>
+						</a>
+					</li>
+				))}
+			</ol>
+		</nav>
+	)
+}

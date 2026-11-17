@@ -1,0 +1,15 @@
+---
+// A boxed sidebar set apart from the main text.
+interface Props {
+	title: string;
+	label?: string;
+}
+const { title, label = 'Sidebar' } = Astro.props;
+const id = `sidebar-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')}`;
+---
+
+<aside class="sidebar" aria-labelledby={id}>
+	<p class="sidebar-label">{label}</p>
+	<p class="sidebar-title" id={id} role="heading" aria-level="3">{title}</p>
+	<slot />
+</aside>

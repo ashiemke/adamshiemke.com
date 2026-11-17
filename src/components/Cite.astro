@@ -1,0 +1,9 @@
+---
+// Superscript citation marker linking to the matching <Ref n={…}> note.
+interface Props {
+	n: number;
+}
+const { n } = Astro.props;
+---
+
+<sup class="cite"><a id={`cite-${n}`} href={`#note-${n}`} data-note-ref aria-label={`Note ${n}`}>{n}</a></sup>

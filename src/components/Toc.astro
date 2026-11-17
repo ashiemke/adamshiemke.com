@@ -1,0 +1,50 @@
+---
+import type { MarkdownHeading } from 'astro';
+
+interface Props {
+	headings: MarkdownHeading[];
+	variant: 'rail' | 'inline';
+}
+
+const { headings, variant } = Astro.props;
+const NUMBERED = /^(\d+)\.?\s+(.*)$/;
+const items = headings
+	.filter((h) => h.depth === 2 && h.slug !== 'footnote-label')
+	.map((h) => {
+		const m = h.text.match(NUMBERED);
+		return { slug: h.slug, num: m?.[1], text: m ? m[2] : h.text };
+	});
+---
+
+{
+	items.length > 2 &&
+		(variant === 'rail' ? (
+			<nav class="toc toc-rail-nav" aria-label="Contents">
+				<p class="toc-label">Contents</p>
+				<ol>
+					{items.map((i) => (
+						<li>
+							<a href={`#${i.slug}`} data-toc-link>
+								<span class="toc-num">{i.num}</span>
+								<span>{i.text}</span>
+							</a>
+						</li>
+					))}
+				</ol>
+			</nav>
+		) : (
+			<details class="toc toc-inline">
+				<summary>Contents</summary>
+				<ol>
+					{items.map((i) => (
+						<li>
+							<a href={`#${i.slug}`}>
+								<span class="toc-num">{i.num}</span>
+								<span>{i.text}</span>
+							</a>
+						</li>
+					))}
+				</ol>
+			</details>
+		))
+}

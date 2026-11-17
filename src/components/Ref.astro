@@ -1,0 +1,12 @@
+---
+// A numbered note; links back to the <Cite n={…}> that points at it.
+interface Props {
+	n: number;
+}
+const { n } = Astro.props;
+---
+
+<li id={`note-${n}`} value={n}>
+	<span class="note-num" aria-hidden="true">{n}</span>
+	<div class="note-body"><slot /> <a href={`#cite-${n}`} class="backref" aria-label={`Back to reference ${n}`}>↩&#xFE0E;</a></div>
+</li>

@@ -1,0 +1,296 @@
+---
+title: 'Durable Principles for Agentic Engineering'
+description: 'Principles for engineering the harness around coding agents: separating the recurring constraints of human–agent work from the limits of today''s models, and building around the former.'
+pubDate: 2026-11-16
+status: 'Working draft v4'
+---
+import Cite from '../../components/Cite.astro';
+import Ref from '../../components/Ref.astro';
+import RefList from '../../components/RefList.astro';
+import Sidebar from '../../components/Sidebar.astro';
+import Example from '../../components/Example.astro';
+import PrincipleIndex from '../../components/PrincipleIndex.astro';
+
+Your engineering work increasingly includes designing the system that writes the code.
+
+That system needs to understand the task, find the relevant knowledge, use the tools, make decisions, and check what it did. When those pieces work together, you can hand off a complete outcome and let an agent work toward it. When they don't, you spend your day interpreting requests, pasting errors, correcting assumptions, and approving the next step.
+
+The tools, instructions, context, permissions, and feedback around a model are its harness. Some of that comes with your coding tool (e.g. GitHub Copilot, OpenAI Codex or Claude Code). Others live in your repository, development environment, and team practices. All of them affect what you can delegate.
+
+In 1986, Fred Brooks distinguished the essential difficulty of software—the concepts, relationships, and behavior the system must embody—from the accidental difficulty of expressing it through our tools.<Cite n={1} /> Agents give us new ways to work on both. They can produce an implementation, expose ambiguity, or build a prototype that helps someone discover what they want. The resulting software still has to serve a particular purpose in a particular world.
+
+These principles are about engineering that relationship. They should help you take on more ambitious work as the models improve, and decide which parts of your practice to keep or replace.
+
+## What changes, and what keeps coming back
+
+The business theorist W. E. Deming's distinction between common and special causes of variation offers a useful starting point: improving a system requires understanding which causes of defects belong to the system and which arise from particular circumstances.<Cite n={2} /> Here, I'm extending that distinction into an analogy for human–agent work.
+
+The common causes are the constraints we keep encountering across models and projects: private intent, incomplete knowledge, missing context, limited attention, and uncertain judgments. The special causes are contingent limitations of a particular request, model or setup: a tool it handles badly, an instruction it routinely misreads, a task it cannot yet complete. Model evolution has steadily eaten those limitations. Unresolved intent and missing feedback will always be problems, however much the agent improves.
+
+This gives us a way to judge advice. Does it address a recurring constraint of the work, or compensate for today's machinery? Both can be useful, but constantly adapting to the latter is tiring and doesn’t allow you to invest in the future.
+
+Start with the constraints:
+
+- **Intent is private, and often unfinished.** The agent cannot read your mind. You may not know what you mean until you try to express it. As E. M. Forster put it: “How can I tell what I think till I see what I say?” Writing an explanation, examining an example, or trying a prototype helps give an idea shape. Use the agent to make your thinking concrete enough to examine and revise.
+- **Context is unevenly distributed.** You know things the agent has never seen. It may find things you missed. Make relevant knowledge accessible, and preserve what the work discovers.
+- **Facts need a frame.** Knowing which document is authoritative, which exception is local, or why an approach was rejected changes how information should be used. Supply that basis for judgment along with the facts.
+- **Capability claims need calibration.** A model's account of what it can do is imperfect evidence about whether it can finish this task, with these tools, in this environment. Our expectations can be just as stale. Learn from attempts and observable results.
+- **Attention and memory are finite.** People lose track, forget reasons, and mistake confidence for evidence. Agent session context compression and handoffs also lose information. Build checks and records that let the work outlast anyone's immediate attention.
+
+These are shared engineering problems. Better models can solve more and more general problems, and know more about how problems were solved in the past. The need to establish intent, interpret evidence, and carry knowledge forward remains. Therefore, these principles:
+
+<PrincipleIndex headings={props.headings} />
+
+## 1. Delegate outcomes
+
+Give the agent a useful result to achieve, the constraints it must respect, and a way to find out whether it succeeded. Then let it choose how to get there.
+
+If every handoff is “add this function,” you still have to assemble the workflow yourself. “Make this import handle duplicate records according to these rules, and demonstrate it against these examples” gives the agent an outcome it can pursue and check.
+
+Start with an outcome with consequences you can contain and with results you can assess automatically. Let the agent inspect the code, propose an approach where needed, implement, run checks, and repair its mistakes. Watch where you have to intervene. Each intervention tells you something about the prompt, the environment, or the agent's current limits. Watch it think and act, see where it makes a choice that doesn’t make sense, think about why. This is the work. Don’t turn your brain off when you press enter.
+
+Measure capability by trying real work. Recognizing the steps of a solution and completing the whole task are different achievements. Watch whether it reaches a verified result, recovers from failure, and if/where it needs your help along the way.
+
+What you learn applies to that model working in that environment. An assistant you used a year ago is a poor basis for deciding what to delegate today. After a model update cycle, relax your priors and see what’s possible now; it changes frequently.
+
+Your job is to make the outcome clear enough to pursue and observable enough to judge, without you being involved. Better delegation buys you room to think about the next problem.
+
+## 2. Make intent concrete
+
+Writing down a requirement helps create the understanding you are trying to communicate. A requirement in your head is a loose cluster of associations that feels complete because you never have to traverse all of it at once. Writing forces an order, a choice between near-synonyms, and a clear answer to what every “it” means, all decisions the vague version let you defer. Like a compiler, an agent has none of the shared context a colleague would use to fill your gaps. Unlike a compiler, it won’t stop at a gap. It fills it with a plausible guess.
+
+Some requirements are facts waiting to be discovered, others are choices nobody has made yet. Handle them differently.
+
+Tell the model about facts: who uses the system, what data exists, which obligations apply, what the current workflow does. For an unresolved preference, put something concrete in front of the person who owns it: an example, a sketch, two alternatives, a running prototype.
+
+“Should duplicate customers be skipped or updated?” exposes a decision. A preview showing which records would change may expose a consequence nobody had considered.
+
+These are not two routes to the same answer. When a preference is being constructed rather than recalled, how you ask helps shape what you get.<Cite n={3} /> That cuts both ways: if the agent chose which alternatives to prototype, it has already narrowed the decision. When you record the choice, note who framed the options.
+
+Have the agent surface assumptions before they become stored data, external contracts, or behavior people depend on. Bear in mind it might not know all the assumptions it is making, or may not think them useful enough to surface. Adding more context usually helps. Include things like the work's intended life and importance: a demo for tomorrow, a product feature, or a component several teams will depend on.
+
+You do not need to specify everything up front—specifying everything is equivalent to writing the code.<Cite n={4} /> You need to discover the consequential unknowns while changing your mind is still cheap. Use the agent to accelerate that discovery: have it interview you one question at a time, as in Matt Pocock’s /grill-with-docs skill, and turn your answers into examples you can check.
+
+## 3. Earn autonomy with evidence
+
+Neither your confidence nor the agent's confidence establishes that the work succeeded. Give the agent a concrete way to verify the outcome and the tools to carry it out.
+
+Describe how to start the system, which data to use, what actions to take, what should happen, and where to inspect the result. Think of testing broadly: automated assertions, browser workflows, data reconciliation, visual comparisons, and recovery exercises can all challenge a claim.
+
+For a customer import, the instructions might be:
+
+<Example label="Example instructions">
+
+Reset the test database and seed an existing customer. In the browser, import a file containing that customer's ID and one new customer. Check the stored records: the new customer exists, the existing customer's contact details changed, and unrelated fields stayed intact. Reset and repeat with a file containing an invalid row. Confirm that no records changed and that the downloadable report identifies the row and explains the error.
+
+</Example>
+
+Then make the checks possible:
+
+
+
+- **Test scripts and a runnable environment.** Document commands to start the application, seed and reset data, and run checks. Supply the dependencies and fixtures. Tell the agent to write scripts{/* TODO: a "[*]" note marker was here with no matching note */} to exercise an API, inspect results, or repeat a scenario.
+- **Browser access.** Provide a test account and tools to interact with the application, inspect the page, and capture screenshots. Make console errors and failed network requests available.
+- **Image tools.** Let the agent crop, zoom, resize, and compare screenshots or rendered output. Specify the viewport and what to inspect: clipped text, unreadable labels, missing controls, or differences from a reference image.
+- **Evidence beyond the screen.** Provide access to logs, database queries, and generated files. A success message does not establish that the correct data was saved.
+
+
+
+Have the agent build missing checks as part of the task and keep useful ones for the next run. Ask it to report what it ran, what it observed, and what remains unverified.
+
+Check the checks, too. A test can repeat the implementation's mistaken assumption. Watch a regression test fail for the intended reason before the fix, compare against independently established examples, or introduce a defect and see whether it is caught (see mutation testing<Cite n={5} />). A fresh agent reviewer can challenge your conclusion if it has the requirements, surrounding code, and evidence.
+
+Preserve the acceptance criteria while iterating. Strong checks support larger assignments; where verification still needs your judgment, agree on intermediate results you can inspect.
+
+Delegating execution does not delegate accountability. You own what ships, including the adequacy of the evidence you use to accept it.
+
+## 4. Don't be a meat proxy
+
+An agent cannot learn from an outcome it never sees. If you repeatedly copy errors, logs, screenshots, or ticket text between an agent and another system, you have found a missing connection.
+
+Give the agent access to the evidence you would use: test output, a running application, relevant logs, a browser, the authoritative specification. Make the feedback usable. “Failed” is less helpful than the failing case, the observed result, and where to investigate.
+
+Then close the loop. The agent should be able to make a change, observe its effect, and act on what it learns. That is how a tool that suggests code becomes a system that can fix a problem.
+
+Start with the connection that removes the most repeated handling. A reliable command that brings up a test environment may buy more useful autonomy than a page of carefully tuned instructions. Depending on the harness, browser automation, a signed-in test session, or a small script can connect work that has no convenient API or MCP interface. If you’re copy-pasting, brainstorm with the model for a minute. Check which tools it actually has; you may need to point out a capability or make one available.
+
+Every paste is a clue. Follow the clues until your attention is being spent on decisions that need it.
+
+## 5. Diagnose the failure before adding machinery
+
+When an agent produces a bad result or takes a costly detour, inspect how it got there.
+
+Was the relevant information available? Could it find and use it? Was the request ambiguous? Did a tool fail? Did the check accept the wrong behavior? Did the task exceed what this model could reliably do?
+
+Those causes call for different repairs. Many errors are caused by insufficient context, a trend that will only continue as models become more capable of using more information to do more. Connect a missing source. Clarify a requirement. Repair the tool. Strengthen the check. Change the assignment or try a different approach when capability is the limit.
+
+Use the common/special cause analogy to choose the level of repair. Missing business intent calls for a reliable way to develop and communicate intent. A particular model's trouble using a tool may call for a temporary adapter. Adding “be careful, make no mistakes” addresses neither cause.
+
+Look for patterns across attempts, models, and environments. Check whether a change removes the cause or only hides the symptom. Keep temporary repairs easy to revisit.
+
+Change one meaningful thing and observe what happens. Otherwise, an elaborate new workflow can conceal the original problem and leave you maintaining a solution you don't understand.
+
+<Sidebar title="Watch the route as well as the result">
+
+An agent can eventually finish correctly and still take a wasteful route. It may spend an hour rebuilding something already available in a file it never opened, or leave a new framework behind to solve a small problem. Time, tokens, human attention, and added complexity are part of the cost of an outcome.
+
+The shortcut is obvious only if you know it exists. Point out relevant tools, existing implementations, and the scale of solution you expect. When you don't know, make that uncertainty explicit and leave room to investigate before committing to an approach.
+
+Keep enough of the work visible to notice a detour: actions taken, intermediate results, and changes to the system. Oversight tools and analytics can flag repetition, but repetition alone does not distinguish being stuck from doing difficult work. Look for what the work has established, which uncertainty it has resolved, and why the next step follows. Sometimes the right intervention is a missing fact or tool; sometimes the work needs more time.
+
+You asked what the moon is made of. If the agent starts building a space shuttle in your garage, check whether it has search.
+
+</Sidebar>
+
+## 6. Make corrections accumulate
+
+If a useful lesson lives only in a conversation, the next task can rediscover the same failure. A correction should improve the next attempt as well as the current one.
+
+If an agent repeatedly crosses a module boundary, consider whether the dependency can be prevented or checked. If it misunderstands a business rule, add a clear example and a behavioral test. If it keeps running the wrong command, provide one reliable entry point.
+
+For repeatable operations, prefer a tool to a longer prompt. A prompt leaves the agent to interpret and carry out the procedure each time. A tool packages the operation into something you can test, reuse, and improve. Setup, data gathering, and validation are good places to look. Use an existing tool where one fits; build one when repeated interpretation is causing errors or wasted work.
+
+Instructions still carry goals, context, and judgment, including when and why to use a tool. Choose the simplest mechanism that reliably addresses the problem: architecture, types, tests, static analysis, tooling, or an instruction. Useful output should help the agent decide what to do next, including how to recover from errors. You can have the agent help figure this out: after diagnosing a failure, ask it to update the relevant artifacts and check that the change addresses the cause.
+
+Keep the fix close to the behavior it governs, and check that it actually reduces the failure. Put it where subsequent work, including your teammates' work, will use it. Give shared tools and checks owners so they remain useful.
+
+This is how individual experience becomes a better development system. Your debugging effort can keep paying off after the session ends.
+
+## 7. Share the basis for judgment
+
+Access to more text does not settle which text matters.
+
+Suppose a repository contains an approved design, an abandoned proposal, and an unfunded plan for next year. You know how to read them because you were in the meetings. An agent may see three equally polished documents. Mark their status, scope, and authority. Explain what settled the choice and what could reopen it. Do this in documents that independent sessions can pick up.
+
+This is meta-context: the knowledge used to interpret other knowledge. “Use this interface” is useful. “This interface supports clients we cannot upgrade; revisit it when those clients migrate” also supplies a reason and a boundary.
+
+When work goes off course, first ask what the agent is missing. Favor adding useful context before taking context away: a relevant file, an example, a constraint, or the reason an apparent shortcut will not work. Provide the detail directly or a clear route to retrieve it. Resolve conflicting sources and remove material that is demonstrably distracting. Treat a smaller context as an experiment whose value you need to establish.
+
+Give the agent a map to that knowledge. Keep the entry point focused: what the project is for, where authoritative rules live, how to run and check it, and which decisions to bring back to you. Put detailed reasoning close to the decision it explains. Models are great at finding the information they need, if the right pointers exist.
+
+Prefer one maintained source to several copied descriptions. Use formats that people and tools can inspect, search, and change. Plain text is often a good starting point; structured data earns its place when a tool needs to enforce a schema.
+
+Be deliberate about instructions. Project obligations deserve explicit representation. Generic coaching should earn its keep through observed improvement. Test whether a new instruction helps across more than one convenient example. Develop evals to help you know when a change helps vs. adds clutter.
+
+A useful map makes the next task easier to start. An instruction file that keeps growing without becoming more useful needs editing.
+
+## 8. Capture decisions while the reasoning is still available
+
+Code preserves what was implemented. It often leaves out why the team chose it. Human memory and session history are unreliable substitutes for that missing explanation.
+
+When a consequential decision is made, capture the choice, the reason, the important alternative, and the assumption that might cause you to revisit it. A few sentences may be enough. Identify who resolved it when ownership matters. See ADRs.
+
+Keep unresolved questions visibly unresolved. An agent's plausible summary must not quietly promote an assumption into an approved requirement.
+
+At a handoff, record the current state, what has been verified, what remains uncertain, and where work should resume. Link to evidence that is expensive to reconstruct.
+
+The purpose is to let the next engineer or agent start from established knowledge. Durable records reduce rediscovery and make it easier to challenge an old decision when its assumptions change.
+
+## 9. Use Cheap Development to Explore the Solution Space
+
+Passing today's acceptance tests doesn’t tell us about the cost of the next change. Design around explicit expectations, then revise them as you learn. Prototypes and branches are easy to generate, so use them for discovery.
+
+State the likely directions of change before choosing the structure. Will there be more input formats? Different rules for different clients? Much larger volumes? A replacement for an external service? Which of those expectations come from someone who knows the business?
+
+Use those expectations to judge boundaries. Look for places where a likely change would force unrelated parts of the system to move together.
+
+When uncertainty matters enough, run an experiment: have the agent implement a representative kind of change on a disposable branch. Inspect where the work spreads and why. This is a probe, not a maintainability score. File count alone tells you very little, and one easy change does not validate an architecture.
+
+Cheap implementation makes experiments more affordable. Experiments force your abstract thinking into concrete implementation. Use that freedom to investigate a design before committing to it.
+
+## 10. Make complexity earn its keep
+
+Generating code creates future work: concepts to understand, behavior to verify, dependencies to maintain, and paths to retire. Faster production can outrun the team's capacity to understand what it owns.
+
+Ask explicitly for simplification. Can existing code express the behavior? Can an old path disappear? Does this abstraction isolate a real source of change? What requirement justifies the extra mechanism?
+
+The smallest diff is not always the simplest system. A local patch may preserve a structure that should be removed. Equally, a broad cleanup can obscure the change you actually need to review.
+
+Make the cleanup appropriate to the task. When migration or compatibility requires two paths temporarily, name the condition that allows the old one to go.
+
+Use some of the capacity gained from generation to reduce what the team has to carry forward. Deletion is an engineering outcome worth delegating.
+
+## 11. Retire the scaffolding
+
+Every extra prompt, review pass, hook, and orchestration step costs something. Record what problem it solves and how you will tell whether it is still needed.
+
+Return to the common/special cause distinction. Access to the running system, evidence of success, project requirements, and decision history address recurring needs. An elaborate decomposition prompt may compensate for a particular model's difficulty sustaining a task.
+
+Revisit the latter when capabilities change. Remove one component at a time and compare representative outcomes. Look at quality, human intervention, elapsed time, and maintenance effort. Repeat enough work to avoid mistaking a lucky run for an improvement.
+
+Most ‘architectural guidance’ is likewise misplaced—the model has read all the blog posts and knows about e.g. modularity. Provide it reasons to think that modularity is relevant rather than reproducing common knowledge and definitions locally.
+
+Keep the distinction between a mechanism and the obligation it serves. A special review prompt may become unnecessary while independent evidence remains valuable. Better model self-assessment may change how you allocate checks; observed performance still tells you whether that assessment deserves trust.
+
+The harness should get better as you learn. Sometimes better means smaller. Leave yourself room to benefit from the next model instead of preserving every workaround the previous one required.
+
+## 12. Make work resumable
+
+Assume the next session will not remember this one. Context can be lost, compressed, or misunderstood. Leave enough behind that another agent—or another engineer—can pick up the work.
+
+Move the plan into the repository early. It can start as a short checklist with the goal, constraints, open questions, and next steps. Update it as the work changes. An imperfect plan that stays current is more useful than a polished description of what you originally intended.
+
+Record consequential decisions as soon as they are settled. Use an ADR when the reasoning deserves a lasting record; a short note beside the relevant code may be enough for a smaller choice. Keep unresolved assumptions visibly unresolved.
+
+Leave a concrete place to resume. “Import mostly done” is weak. “Valid imports pass; rollback on an invalid row is untested; next, run the invalid-file case against a clean database” tells the next session what to do. Include relevant file paths, commands, and links to results.
+
+Distinguish implementation from verification. Record what changed and what was actually checked. Tie test results to the version they tested so an old success does not become evidence for new code.
+
+Use version control to preserve useful checkpoints. Keep experimental outputs and temporary notes distinguishable from accepted results. Make the current plan and progress record easy to find from the repository’s usual entry point.
+
+On resumption, inspect the actual files and environment before continuing. Progress notes help reconstruct what happened, but they can be incomplete or stale. Check which work exists, which checks still pass, and whether an interrupted operation needs finishing or repeating.
+
+Try the handoff occasionally: start a fresh session and ask it to continue from the repository. Every explanation you have to supply reveals something worth recording. Documentation, like understanding, feels more complete than it is until someone has to use it.
+
+## Putting the principles to work
+
+Suppose a client asks for CSV customer imports.
+
+You give the agent the outcome, access to the existing application, and representative files. You identify which import notes describe current requirements and which describe a discarded proposal. It inspects the code and discovers that the request leaves duplicate handling unspecified.
+
+The agent produces a small preview showing the consequences of skipping, updating, or rejecting duplicates. The client decides that a stable customer ID identifies an existing record, matching records may update contact details, and any invalid row must prevent the import from changing data. The preview also reveals that users need to download a useful error report.
+
+Those decisions become acceptance examples and a short decision record. The agent implements the import and checks it against a disposable database. It can read failures and rerun the workflow without you carrying messages between tools.
+
+You inspect the evidence that matters: matching by ID, preserving unrelated fields, rejecting invalid files without partial changes, and producing an understandable report. You also review the relevant implementation and tests where the consequences warrant it.
+
+Testing reveals a recurring problem: the environment retains data from previous runs. You add a reliable reset command and make it part of the test setup, replacing repeated instructions for cleaning up by hand. Future tasks inherit that improvement. If this model also needs a reminder to invoke the command, keep that reminder separately so you can later remove it without losing the capability to reset the environment.
+
+If another import format is genuinely likely, you may probe that change before settling the design. You keep the setup and acceptance cases available to the team, then revisit any special agent instructions when the tool changes.
+
+The outcome includes a working feature, settled business rules, and an environment better equipped to handle the next task.
+
+## Where to begin
+
+Choose one useful outcome you currently supervise step by step. Make the context and checks available, let the agent attempt the whole task, and observe where you have to intervene. Improve the most consequential obstacle. Try again.
+
+If access or platform support blocks progress, make the cost visible: repeated manual steps, failures you cannot investigate, or work that stops waiting for access. Use that evidence to propose a specific improvement to the shared environment.
+
+Your existing engineering judgment supplies the raw material: knowing which questions matter, recognizing a weak requirement, tracing a failure, and seeing where a design will hurt. Each time you put that knowledge into the working system, you extend what you and the team can accomplish.
+
+## Sources and further reading
+
+The foundations explain the argument; the practitioner sources offer implementations and experiments. Treat their workflows as things to learn from and test as capabilities change.
+
+### Foundations
+
+<RefList>
+<Ref n={1}>Frederick P. Brooks Jr., [No Silver Bullet—Essence and Accidents of Software Engineering](https://www.cin.ufpe.br/~phmb/ip/MaterialDeEnsino/BrooksNoSilverBullet.html). The essential/accidental distinction informs the opening; the application to agents here is this draft's argument.</Ref>
+<Ref n={2}>John Hunter, W. Edwards Deming Institute, [Knowledge of Variation](https://deming.org/knowledge-of-variation/). Background on common and special causes. The extension to enduring collaboration constraints and contingent model limitations is this draft's analogy.</Ref>
+<Ref n={3}>Sarah Lichtenstein and Paul Slovic, [The Construction of Preference: An Overview](https://www.cambridge.org/core/books/abs/the-construction-of-preference/the-construction-of-preference-an-overview/C74C08AB99538A8E234AFEAC23D9B428). Why preferences can emerge through the process of choosing.</Ref>
+<Ref n={4}>For some problems, the amount of descriptive text to crystallize the desired behavior approaches the complexity of the code—and for some problems, it’s easier to just write the code. But those are the minority of the situations in practice today. You need to build the intuition to know when to step back and when to get in the weeds.</Ref>
+<Ref n={5}>[Stryker Mutator documentation](https://stryker-mutator.io/docs/). Mutation testing introduces changes to your code, then runs your unit tests against the changed code. It is expected that your unit tests will now fail. If they don't fail, it might indicate your tests do not sufficiently cover the code. Agents can help you implement mutation testing, and interpret the results, but they often won’t without being asked explicitly.</Ref>
+</RefList>
+
+- David Thomas and Andrew Hunt, [The Pragmatic Programmer](https://pragprog.com/titles/tpp20/the-pragmatic-programmer-20th-anniversary-edition/). The model for this document's ambition: practical judgment grounded in lasting properties of software work, including plain text, reversibility, and responsibility.
+- Anthropic, [Signs of introspection in large language models](https://www.anthropic.com/research/introspection). Evidence that some introspective abilities are possible but limited and unreliable. The argument here requires calibration, not a claim that models have no self-knowledge.
+
+### Practitioner accounts and working examples
+
+- Lauren Tan, The Complete Guide to pstack, [Part 1](https://x.com/poteto/article/2094457600259842065) and [Part 2](https://x.com/poteto/article/2097732320606507506), alongside the [repository guide](https://github.com/cursor/plugins/blob/main/pstack/docs/guide/README.md) and [principles](https://github.com/cursor/plugins/blob/main/pstack/docs/guide/08-principles.md). The repository guide provides concrete examples of outcome-driven work, verification, and reusable tools.
+- Matt Pocock, [agent skills repository](https://github.com/mattpocock/skills) and [AI Hero writings](https://www.aihero.dev/posts), especially [The /grill-with-docs Skill](https://www.aihero.dev/skills-grill-with-docs) and [The /writing-for-agents Skill](https://www.aihero.dev/skills-writing-for-agents). Examples of eliciting decisions, recording shared understanding, and writing useful agent instructions.
+- Mitchell Hashimoto, [My AI Adoption Journey](https://mitchellh.com/writing/my-ai-adoption-journey). An account of learning through use and improving the surrounding environment.
+- Simon Willison, [Agentic Engineering Patterns](https://simonwillison.net/guides/agentic-engineering-patterns/). A growing collection of practices, including testing, verification, and review.
+- Birgitta Böckeler, [Harness engineering for coding agent users](https://martinfowler.com/articles/harness-engineering.html). A complementary account of guidance and feedback around coding agents.
+- Anthropic, [Effective harnesses for long-running agents](https://www.anthropic.com/research/effective-harnesses-for-long-running-agents). Concrete experiments with environments, verification, and continuity between sessions.
+- Anthropic, [Harness design for long-running application development](https://www.anthropic.com/research/harness-design-long-running-apps). Experiments with evaluation and adapting the harness as model capabilities change.

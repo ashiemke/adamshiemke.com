@@ -1,0 +1,27 @@
+---
+import { type CollectionEntry, getCollection, render } from 'astro:content';
+import BlogPost from '../../layouts/BlogPost.astro';
+
+export async function getStaticPaths() {
+	const posts = await getCollection('blog');
+	return posts.map((post) => ({
+		params: { slug: post.id },
+		props: post,
+	}));
+}
+type Props = CollectionEntry<'blog'>;
+
+const post = Astro.props;
+const { Content, headings } = await render(post);
+
+// Rough reading time from prose words (imports and tags excluded).
+const prose = (post.body ?? '')
+	.replace(/^import .*$/gm, '')
+	.replace(/<[^>]+>/g, ' ')
+	.replace(/\]\([^)]*\)/g, ']');
+const readingMinutes = Math.max(1, Math.round(prose.split(/\s+/).filter(Boolean).length / 230));
+---
+
+<BlogPost {...post.data} headings={headings} readingMinutes={readingMinutes}>
+	<Content headings={headings} />
+</BlogPost>

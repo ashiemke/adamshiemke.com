@@ -1,0 +1,12 @@
+---
+// A labelled box for an example, prompt or set of instructions.
+interface Props {
+	label?: string;
+}
+const { label = 'Example' } = Astro.props;
+---
+
+<figure class="example">
+	<figcaption>{label}</figcaption>
+	<div class="example-body"><slot /></div>
+</figure>
