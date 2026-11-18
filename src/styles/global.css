@@ -883,15 +883,8 @@ sup {
 	scroll-margin-top: 1.5rem;
 }
 
-/* Narrow columns get ragged quickly; let the browser hyphenate. */
-@media (max-width: 40rem) {
-	.prose p,
-	.prose li {
-		hyphens: auto;
-		-webkit-hyphens: auto;
-		hyphenate-limit-chars: 7 3 3;
-	}
-}
+/* No automatic hyphenation, even in narrow columns: a ragged right edge on a phone reads
+   better than words broken every few lines. Long URLs still wrap (overflow-wrap on body). */
 
 /* ---------- Principle overview ---------- */
 
