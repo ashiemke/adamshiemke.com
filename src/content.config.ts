@@ -14,6 +14,7 @@ const blog = defineCollection({
 			// Short label shown beside the date, e.g. "Working draft v4".
 			status: z.string().optional(),
 			heroImage: z.optional(image()),
+			listingImage: z.optional(image()),
 		}),
 });
 

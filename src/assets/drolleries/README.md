@@ -1,72 +1,32 @@
 # Drolleries
 
-Marginal drawings for posts and pages. Use one in MDX with `<Drollery art="NAME" />`, placed right after a section's opening paragraph (see `src/components/Drollery.astro`). This guide is the brief for drawing new ones, by hand or by an agent.
+The blog uses small Gothic manuscript drawings in the margins. Each one should make a section's idea easier to remember or give the reader a little joke. Use `<Drollery art="NAME" />` after the paragraph or heading it belongs to. On narrow screens it becomes a small picture in the reading column.
 
-## Style guide
+## Reference drawings
 
-We're decorating a blog styled like a Gothic illuminated manuscript. Each section of an essay (and of the author's personal README) gets one *drollery*: a small, funny marginal drawing in the spirit of 13th–14th-century manuscript margins (knights fighting snails, apes playing scribe, monkey doctors). Each drawing makes a joke about the point of the section it sits beside, so readers remember the point.
+- [Ape scribe](ape-scribe.webp) shows the line quality and a mechanical tool with a living root for a mount.
+- [Falcon with a balance](falcon-proof.webp) shows how a scene can make an abstract idea concrete with a few shapes.
+- [Potted hydra](mechanical-hydra.webp) shows the plant and machine sharing one silhouette, with just enough detail to tell the joke.
 
-Drawings show in the page margin at about **180–200px wide** on desktop, and as a centered picture at up to **230px wide** on phones. Design for that size: bold, simple shapes, readable at a glance.
+## Line, colour and composition
 
-## Read these first
-The three finished samples set the style. Match them closely:
-- `src/assets/drolleries/knight-snail.svg`
-- `src/assets/drolleries/physician.svg`
-- `src/assets/drolleries/bug-report.svg`
+- Draw in the spirit of a hurried Gothic scribe. Use uneven brown pen lines, occasional restarted contours and a few gaps. Let the line thin or break where the hand lifts.
+- Use broad, mostly flat washes of muted brick, mineral blue, ochre and moss green. Let a brush stroke overlap a contour or leave a patch unpainted. A few visible brush passes do more than a uniform grain overlay.
+- Use stiff profiles, simple eyes and awkward proportions. Give the scene one readable action and a handful of large shapes. Keep the footing to a stray line or a leaf or two.
+- Blend nature and machinery where it earns the joke. Roots can support a joint or feed gears, a seed can be a test sample, and a tree can grow a chart. Use a pin joint, winding key or hinged wing to make the machine legible at small size.
+- Keep the image flat. Skip reflective metal, polished contours, deep shading, and intricate backgrounds. Keep any lettering short and check that it reads in the page.
+- Aim for about 200 CSS pixels wide in the desktop margin. The smallest README drawings show closer to 140 pixels. If an important detail disappears at that size, simplify the scene or give that detail more room.
 
-## Look
-- Naive medieval pen drawing: ink outlines with flat washes of pigment. No gradients, no shading, no perspective tricks. Figures are in profile or three-quarter view, with a dot for an eye and a simple nose bump.
-- Most scenes stand on a short, slightly wavy ground line (`dr-l` path) with a tuft or two of grass (small `dr-v dr-o` triangles), as in the samples. Flying things can float.
-- Keep it to 2–4 elements. One clear joke beats a busy scene.
-- A rendering filter adds a slight hand-drawn wobble at display time. Draw clean lines; don't try to fake wobble.
+## Image-generation brief
 
-## File format (strict)
-```svg
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 W H">
-	<g class="dr-art">
-		<!-- every shape goes in here -->
-	</g>
-	<text class="dr-text" x=".." y="..">optional lettering</text>
-</svg>
-```
-- `viewBox` only. No `width`, `height`, `<style>`, `<filter>`, `<defs>` ids, gradients, images or fonts other than `dr-text`.
-- W between 150 and 240, H between 70 and 160. Leave about 4 units of padding, and keep everything inside the viewBox.
-- Use ONLY these classes for colour. The page defines them for light and dark mode, so never hard-code a colour:
-  - `dr-o`: ink outline (stroke) for a filled shape. Combine it with one fill, e.g. `class="dr-r dr-o"`.
-  - `dr-l`: ink line, no fill (stems, limbs, folds, ground).
-  - `dr-t`: dotted ink trail (paths, sight lines, motion).
-  - Fills: `dr-r` vermilion, `dr-b` lapis blue, `dr-g` gold, `dr-v` green, `dr-n` brown (wood, fur, earth), `dr-s` skin, `dr-p` paper/white (undyed cloth, stone, pages, white fur), `dr-m` steel grey (armour, metal), `dr-k` solid ink (eyes, small dark details).
-  - `dr-text`: lettering on a banderole (scroll ribbon), set in Almendra at the drawings' pen weight. See "Lettering" below.
-  - A thick limb in a colour, like the sample sword arm: draw two paths, an ink one at width N+2.5 under a coloured one at width N, using inline `style="stroke-width: N; stroke: var(--dr-blue, #35589e)"`. Inline styles may only use `var(--dr-ink|red|blue|gold|green|brown|skin|paper|steel, fallback)`.
-- Stroke widths: outlines come from the classes (1.3). Don't go below 0.9 for any line, and no details smaller than about 2 units.
-- Lettering: optional. At most one short banderole of 2–5 words, and only where words make the joke. Old-fashioned wording is welcome ("thither, by any road").
+Supply one of the reference drawings and say it is a style reference. If revising an existing scene, also supply that image and identify it as the subject reference. Give each new drawing a brief like this:
 
-## Lettering
-Words run along the banner's curve rather than sitting on a straight line. Draw the banner as a ribbon (top edge, then the bottom edge back), then add an invisible centre-line path and a `textPath`, outside the `dr-art` group:
+> Draw [subject and one clear action] as a small Gothic manuscript marginal sketch. Use loose, scratchy brown pen with a few restarted or broken contours and patchy, broadly flat mineral washes. Keep the figures stiff and side-on. [Describe any plant and machine hybrid in one sentence.] Compose a compact scene readable in a narrow margin. Isolate it on actual transparency with a little clearance on every side.
+>
+> Skip polished outlines, gradients, metallic shine, synthetic distress, parchment backdrops and extra lettering.
 
-```svg
-	<path id="dr-band-NAME" d="M63.5 25.9C81 21.9 118 29.9 143.5 22.9" fill="none"/>
-	<text class="dr-text" text-anchor="middle" style="font-size: 8.2px"><textPath href="#dr-band-NAME" xlink:href="#dr-band-NAME" startOffset="50%">thither, by any road</textPath></text>
-```
+## Files and review
 
-- The centre line is the average of the ribbon's top and bottom curves, moved down about 0.3 × the font size so the letters sit in the middle. Add `xmlns:xlink="http://www.w3.org/1999/xlink"` to the `<svg>` element.
-- Size the text so it fills about 85% of the banner's length, between 7.5 and 10px and no taller than the banner. For short words, add a little `letter-spacing` (up to 0.1em) instead of a larger size.
-- The id must be unique across all drawings (`dr-band-` plus the file name).
-- Comments in the SVG are fine and help: `<!-- knight -->`.
-
-## Check your work
-Render light and dark PNGs at 3x and look at them with the Read tool:
-
-```bash
-python3 scripts/preview-drollery.py .drolleries-preview src/assets/drolleries/NAME.svg
-```
-
-It writes `.drolleries-preview/NAME.png` (light) and `NAME-dark.png` (dark), using macOS Quick Look. The preview substitutes Georgia for the lettering font, which runs a little wider than the real one.
-
-For each drawing, go through at least two render-and-fix passes. Check:
-- Could someone name the subject and get the joke at 180px wide?
-- Are the figures well constructed? Limbs attach to bodies, things stand on the ground, nothing floats by accident, no stray overlaps.
-- Is everything inside the viewBox, with banderole text inside its ribbon?
-- Does the dark version still read?
-
-Add new drawings to `src/assets/drolleries/`. The colour classes are defined in `src/styles/global.css`, and the wobble filter in `src/components/DrolleryDefs.astro`; `scripts/preview-drollery.py` keeps a copy of both for previews.
+- Use a transparent WebP in this directory with a stable, descriptive name. A width around 660 pixels works for a standard drawing, and around 440 pixels is enough for the smaller ones. Remove excess transparent canvas while keeping stray intentional pen marks.
+- Preview on the page in both themes. Check the cutout edges, the silhouette at its rendered width, and the art's placement beside the intended section. Check a phone width as well as a wide screen.
+- An SVG can share a name with a WebP. The component displays the WebP when both exist. Older SVG drawings use the page's `.dr-*` colour classes and can still be checked with `python3 scripts/preview-drollery.py .drolleries-preview src/assets/drolleries/NAME.svg`.

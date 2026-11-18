@@ -3,6 +3,7 @@ title: 'Durable Principles for Agentic Engineering'
 description: 'Principles for engineering the harness around coding agents: separating the recurring constraints of human–agent work from the limits of today''s models, and building around the former.'
 pubDate: 2026-11-16
 status: 'Working draft v4'
+listingImage: '../../assets/drolleries/knight-snail.webp'
 ---
 import Cite from '../../components/Cite.astro';
 import Ref from '../../components/Ref.astro';
@@ -64,8 +65,6 @@ Your job is to make the outcome clear enough to pursue and observable enough to 
 
 Writing down a requirement helps create the understanding you are trying to communicate. A requirement in your head is a loose cluster of associations that feels complete because you never have to traverse all of it at once. Writing forces an order, a choice between near-synonyms, and a clear answer to what every “it” means, all decisions the vague version let you defer. Like a compiler, an agent has none of the shared context a colleague would use to fill your gaps. Unlike a compiler, it won’t stop at a gap. It fills it with a plausible guess.
 
-<Drollery art="mason-plan" />
-
 Some requirements are facts waiting to be discovered, others are choices nobody has made yet. Handle them differently.
 
 Tell the model about facts: who uses the system, what data exists, which obligations apply, what the current workflow does. For an unresolved preference, put something concrete in front of the person who owns it: an example, a sketch, two alternatives, a running prototype.
@@ -82,7 +81,7 @@ You do not need to specify everything up front—specifying everything is equiva
 
 Neither your confidence nor the agent's confidence establishes that the work succeeded. Give the agent a concrete way to verify the outcome and the tools to carry it out.
 
-<Drollery art="falconer" />
+<Drollery art="falcon-proof" />
 
 Describe how to start the system, which data to use, what actions to take, what should happen, and where to inspect the result. Think of testing broadly: automated assertions, browser workflows, data reconciliation, visual comparisons, and recovery exercises can all challenge a claim.
 
@@ -117,8 +116,6 @@ Delegating execution does not delegate accountability. You own what ships, inclu
 
 An agent cannot learn from an outcome it never sees. If you repeatedly copy errors, logs, screenshots, or ticket text between an agent and another system, you have found a missing connection.
 
-<Drollery art="messenger-monk" />
-
 Give the agent access to the evidence you would use: test output, a running application, relevant logs, a browser, the authoritative specification. Make the feedback usable. “Failed” is less helpful than the failing case, the observed result, and where to investigate.
 
 Then close the loop. The agent should be able to make a change, observe its effect, and act on what it learns. That is how a tool that suggests code becomes a system that can fix a problem.
@@ -131,7 +128,7 @@ Every paste is a clue. Follow the clues until your attention is being spent on d
 
 When an agent produces a bad result or takes a costly detour, inspect how it got there.
 
-<Drollery art="physician" width="11rem" />
+<Drollery art="physician" />
 
 Was the relevant information available? Could it find and use it? Was the request ambiguous? Did a tool fail? Did the check accept the wrong behavior? Did the task exceed what this model could reliably do?
 
@@ -147,8 +144,6 @@ Change one meaningful thing and observe what happens. Otherwise, an elaborate ne
 
 An agent can eventually finish correctly and still take a wasteful route. It may spend an hour rebuilding something already available in a file it never opened, or leave a new framework behind to solve a small problem. Time, tokens, human attention, and added complexity are part of the cost of an outcome.
 
-<Drollery art="snail-road" top="-6.5rem" />
-
 The shortcut is obvious only if you know it exists. Point out relevant tools, existing implementations, and the scale of solution you expect. When you don't know, make that uncertainty explicit and leave room to investigate before committing to an approach.
 
 Keep enough of the work visible to notice a detour: actions taken, intermediate results, and changes to the system. Oversight tools and analytics can flag repetition, but repetition alone does not distinguish being stuck from doing difficult work. Look for what the work has established, which uncertainty it has resolved, and why the next step follows. Sometimes the right intervention is a missing fact or tool; sometimes the work needs more time.
@@ -160,8 +155,6 @@ You asked what the moon is made of. If the agent starts building a space shuttle
 ## 6. Make corrections accumulate
 
 If a useful lesson lives only in a conversation, the next task can rediscover the same failure. A correction should improve the next attempt as well as the current one.
-
-<Drollery art="wall-stone" />
 
 If an agent repeatedly crosses a module boundary, consider whether the dependency can be prevented or checked. If it misunderstands a business rule, add a clear example and a behavioral test. If it keeps running the wrong command, provide one reliable entry point.
 
@@ -176,8 +169,6 @@ This is how individual experience becomes a better development system. Your debu
 ## 7. Share the basis for judgment
 
 Access to more text does not settle which text matters.
-
-<Drollery art="owl-lectern" />
 
 Suppose a repository contains an approved design, an abandoned proposal, and an unfunded plan for next year. You know how to read them because you were in the meetings. An agent may see three equally polished documents. Mark their status, scope, and authority. Explain what settled the choice and what could reopen it. Do this in documents that independent sessions can pick up.
 
@@ -197,8 +188,6 @@ A useful map makes the next task easier to start. An instruction file that keeps
 
 Code preserves what was implemented. It often leaves out why the team chose it. Human memory and session history are unreliable substitutes for that missing explanation.
 
-<Drollery art="bird-book" />
-
 When a consequential decision is made, capture the choice, the reason, the important alternative, and the assumption that might cause you to revisit it. A few sentences may be enough. Identify who resolved it when ownership matters. See ADRs.
 
 Keep unresolved questions visibly unresolved. An agent's plausible summary must not quietly promote an assumption into an approved requirement.
@@ -210,8 +199,6 @@ The purpose is to let the next engineer or agent start from established knowledg
 ## 9. Use Cheap Development to Explore the Solution Space
 
 Passing today's acceptance tests doesn’t tell us about the cost of the next change. Design around explicit expectations, then revise them as you learn. Prototypes and branches are easy to generate, so use them for discovery.
-
-<Drollery art="paper-boats" />
 
 State the likely directions of change before choosing the structure. Will there be more input formats? Different rules for different clients? Much larger volumes? A replacement for an external service? Which of those expectations come from someone who knows the business?
 
@@ -225,7 +212,7 @@ Cheap implementation makes experiments more affordable. Experiments force your a
 
 Generating code creates future work: concepts to understand, behavior to verify, dependencies to maintain, and paths to retire. Faster production can outrun the team's capacity to understand what it owns.
 
-<Drollery art="hydra-dinner" />
+<Drollery art="mechanical-hydra" />
 
 Ask explicitly for simplification. Can existing code express the behavior? Can an old path disappear? Does this abstraction isolate a real source of change? What requirement justifies the extra mechanism?
 
@@ -238,8 +225,6 @@ Use some of the capacity gained from generation to reduce what the team has to c
 ## 11. Retire the scaffolding
 
 Every extra prompt, review pass, hook, and orchestration step costs something. Record what problem it solves and how you will tell whether it is still needed.
-
-<Drollery art="scaffolding" />
 
 Return to the common/special cause distinction. Access to the running system, evidence of success, project requirements, and decision history address recurring needs. An elaborate decomposition prompt may compensate for a particular model's difficulty sustaining a task.
 
