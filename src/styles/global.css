@@ -44,7 +44,7 @@
 	--dr-brown: #8a6a45;
 
 	--measure: 36rem;
-	--gutter: 16px;
+	--gutter: 20px;
 	--radius: 4px;
 	color-scheme: light;
 }
@@ -161,6 +161,15 @@ body {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	overflow-wrap: break-word;
+	/* Keep the footer at the bottom of the window on short pages. */
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	min-height: 100dvh;
+}
+
+body > main {
+	flex: 1 0 auto;
 }
 
 @media (min-width: 48rem) {
@@ -301,6 +310,7 @@ sup {
 
 .site-header,
 .site-footer {
+	width: 100%;
 	max-width: 72rem;
 	margin: 0 auto;
 	padding: 1.25rem var(--gutter);
@@ -323,6 +333,7 @@ sup {
 	font-size: 1.15rem;
 	font-weight: 700;
 	letter-spacing: 0.02em;
+	white-space: nowrap;
 	color: var(--text);
 	text-decoration: none;
 }
@@ -336,7 +347,22 @@ sup {
 	gap: 1.25rem;
 }
 
-@media (max-width: 24rem) {
+/* Phones: tighten the header so the name and links share one line. */
+@media (max-width: 30rem) {
+	.site-header {
+		gap: 0.75rem;
+	}
+
+	.wordmark {
+		font-size: 1.05rem;
+	}
+
+	.site-nav {
+		gap: 0.85rem;
+	}
+}
+
+@media (max-width: 22.4rem) {
 	.site-header {
 		flex-wrap: wrap;
 		row-gap: 0.5rem;
@@ -348,10 +374,14 @@ sup {
 	}
 }
 
+/* Lowercase through the small-caps face, so "Writing", "README" and "RSS" all set at the same height. */
 .site-nav a,
 .site-footer a {
 	color: var(--muted);
 	text-decoration: none;
+	text-transform: lowercase;
+	font-size: 1.08em;
+	letter-spacing: 0.05em;
 	font-weight: 500;
 }
 
@@ -381,29 +411,31 @@ sup {
 /* ---------- Home ---------- */
 
 .home {
+	width: 100%;
 	max-width: calc(var(--measure) + 2 * var(--gutter));
 	margin: 0 auto;
 	padding: clamp(2.25rem, 7vw, 5rem) var(--gutter) 0;
 }
 
+/* The intro is the home page's title block, closed by the same gilded rule as a post title. */
 .home-intro {
+	position: relative;
 	font-size: 1.5rem;
 	line-height: 1.45;
 	color: var(--text-2);
-	margin: 0 0 2.75rem;
+	margin: 0 0 2.5rem;
+	padding-bottom: 1.75rem;
 	text-wrap: balance;
 }
 
+/* A rubric label, like the contents list's. */
 .section-label {
+	margin: 0;
 	font-family: var(--font-label);
-	letter-spacing: 0.04em;
-	font-size: 0.9375rem;
-	font-weight: 650;
-	letter-spacing: 0;
-	color: var(--muted);
-	margin: 0 0 0.25rem;
-	padding-bottom: 0.75rem;
-	border-bottom: 1px solid var(--rule);
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	color: var(--accent);
 }
 
 .post-list {
@@ -413,8 +445,30 @@ sup {
 }
 
 .post-list li {
-	padding: 1.75rem 0;
-	border-bottom: 1px solid var(--rule);
+	padding: 1.25rem 0 1.75rem;
+}
+
+/* Posts are separated like an essay's sections. */
+.post-list li + li {
+	position: relative;
+	margin-top: 1.5rem;
+	padding-top: 2.75rem;
+}
+
+/* Not found */
+.notfound {
+	text-align: center;
+}
+
+.notfound-art {
+	display: block;
+	width: min(13rem, 70%);
+	height: auto;
+	margin: 0 auto 1.5rem;
+}
+
+.notfound .post-title {
+	margin-bottom: 0.75rem;
 }
 
 @media (min-width: 35rem) {
@@ -505,7 +559,8 @@ sup {
 	margin-bottom: 2.5rem;
 }
 
-.post-header::after {
+.post-header::after,
+.home-intro::after {
 	--double: linear-gradient(var(--gold-soft) 1px, transparent 1px, transparent 3px, var(--gold-soft) 3px);
 	content: '';
 	position: absolute;
@@ -678,6 +733,7 @@ sup {
 
 /* Opening line of the post */
 .prose > p:first-child {
+	--lead-lh: 1.45;
 	font-size: 1.3em;
 	line-height: 1.45;
 	margin-bottom: 1.1em;
@@ -694,7 +750,8 @@ sup {
 	scroll-margin-top: 0.5rem;
 }
 
-.prose h2::before {
+.prose h2::before,
+.post-list li + li::before {
 	content: '';
 	position: absolute;
 	top: -10px;
@@ -718,6 +775,7 @@ sup {
 /* The first paragraph of a section usually states its point; set it a step larger. */
 .prose h2 + p,
 .principle-lead > p {
+	--lead-lh: 1.6;
 	font-size: 1.1em;
 	line-height: 1.6;
 	color: var(--text);
@@ -978,6 +1036,37 @@ a[data-footnote-ref]:target {
 	line-height: 1.6;
 }
 
+/* Unnumbered sources hang from the same column as the numbered notes, marked with a small
+   rubric leaf where a note has its number, so one list reads straight into the next. */
+.prose h2:is(#sources-and-further-reading, #sources, #references, #further-reading) ~ ul {
+	list-style: none;
+	margin: 1rem 0 2rem;
+	/* Same indent as the notes list, which keeps the prose list padding. */
+	padding: 0 0 0 1.3em;
+}
+
+.prose h2:is(#sources-and-further-reading, #sources, #references, #further-reading) ~ ul > li {
+	position: relative;
+	margin: 0 0 0.9rem;
+	padding: 0 0 0 2.25rem;
+}
+
+.prose h2:is(#sources-and-further-reading, #sources, #references, #further-reading) ~ ul > li::before {
+	content: '';
+	position: absolute;
+	left: 0.45rem;
+	top: 0.5em;
+	width: 0.6rem;
+	height: 0.56rem;
+	background: var(--accent);
+	mask: url('/ornaments/ivy.svg') center / contain no-repeat;
+	transform: rotate(90deg);
+}
+
+.prose h2:is(#sources-and-further-reading, #sources, #references, #further-reading) ~ .notes + ul {
+	margin-top: -0.45rem;
+}
+
 .prose h2:is(#sources-and-further-reading, #sources, #references, #further-reading) ~ h3 {
 	font-size: 1rem;
 	color: var(--text-2);
@@ -1119,8 +1208,8 @@ a[data-footnote-ref]:target {
 .example-body {
 	padding: 1rem 1.1rem 1.1rem;
 	font-family: var(--font-serif);
-	font-size: 0.98rem;
-	line-height: 1.65;
+	font-size: 0.92em;
+	line-height: 1.6;
 	color: var(--text-2);
 }
 
@@ -1323,13 +1412,20 @@ a[data-footnote-ref]:target {
 	text-indent: -0.25em;
 }
 
+/*
+  A two-line initial, as a scribe would leave room for: the box is exactly two of the
+  paragraph's lines deep, so the third line runs full width underneath it.
+  --lead-lh is the paragraph's line height (set on the lead paragraph styles above).
+  The box height comes from the letter's line height plus its 2px borders.
+*/
 .prose > p:first-of-type::first-letter {
+	--initial-depth: calc(2 * var(--lead-lh, 1.65) - 0.1);
 	float: left;
-	margin: -0.06em 0.14em 0 0;
-	padding: 0.12em 0.17em 0.08em;
-	font-size: 2.55em;
+	margin: 0 0.14em 0 0;
+	padding: 0 0.17em;
+	font-size: calc(var(--initial-depth) * 0.9em);
 	font-weight: 700;
-	line-height: 1;
+	line-height: calc(1em / 0.9 - 4px);
 	color: var(--gold-leaf);
 	background: url('/ornaments/filigree.svg') 0 0 / 0.42em, var(--lapis-deep);
 	border: 2px solid #b8902f;
@@ -1339,8 +1435,9 @@ a[data-footnote-ref]:target {
 		inset 0 0 0 3px rgba(236, 208, 138, 0.55);
 }
 
-/* A sprig of ivy grows from the initial into the margin. */
-@media (min-width: 60rem) {
+/* A sprig of ivy grows from the initial into the margin. Wider screens show the contents
+   list in that margin instead, so the sprig would crowd it. */
+@media (min-width: 60rem) and (max-width: 74.99rem) {
 	.prose > p:first-of-type::before {
 		content: '';
 		position: absolute;
@@ -1366,14 +1463,17 @@ a[data-footnote-ref]:target {
 		position: relative;
 	}
 
+	/* Like a manuscript's opening page, only the start of the page gets a border.
+	   It runs beside the title and opening, then fades out before the reading settles in. */
 	.post::after {
 		content: '';
 		position: absolute;
 		top: 1.5rem;
-		bottom: 0;
 		left: calc(100% + 16rem);
 		width: 18px;
+		height: min(100%, 68rem);
 		background: url('/ornaments/vinet.svg') 0 0 / 18px auto repeat-y;
+		mask: linear-gradient(#000 0 30rem, transparent 100%);
 		opacity: var(--ornament-opacity, 1);
 		pointer-events: none;
 	}
@@ -1435,12 +1535,12 @@ a[data-footnote-ref]:target {
 
 /* Reserve the brighter painted highlights for the illustration itself. */
 @media (prefers-color-scheme: dark) {
-	:root:not([data-theme='light']) :is(.drollery-painted img, .post-list-art) {
+	:root:not([data-theme='light']) :is(.drollery-painted img, .post-list-art, .notfound-art) {
 		filter: brightness(0.88);
 	}
 }
 
-:root[data-theme='dark'] :is(.drollery-painted img, .post-list-art) {
+:root[data-theme='dark'] :is(.drollery-painted img, .post-list-art, .notfound-art) {
 	filter: brightness(0.88);
 }
 
