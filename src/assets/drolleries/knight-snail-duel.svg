@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 150">
+	<g class="dr-art">
+
+	<!-- ground -->
+	<path class="dr-l" d="M6 134C30 131 60 136 100 133C130 130 170 136 214 132"/>
+	<path class="dr-v dr-o" d="M14 133C15 127 17 125 19 122C19 127 20 130 22 133Z"/>
+	<path class="dr-v dr-o" d="M104 133C105 128 106 126 109 124C108 128 109 131 111 133Z"/>
+	<!-- snail, reared up -->
+	<path class="dr-p dr-o" d="M124 134C122 130 126 127 134 127C140 127 142 120 142 110C142 98 142 86 146 78C150 70 158 71 160 79C162 88 160 100 162 112C164 122 176 126 200 128L208 134Z"/>
+	<path class="dr-l" d="M146 74L136 58M152 72L146 54"/>
+	<circle class="dr-k" cx="135" cy="56.5" r="1.8"/>
+	<circle class="dr-k" cx="145.5" cy="52.5" r="1.8"/>
+	<path class="dr-l" d="M147 84H152"/>
+	<circle class="dr-g dr-o" cx="186" cy="105" r="23"/>
+	<path class="dr-l" d="M185.5 105A1.5 1.5 0 0 1 188.5 105A3 3 0 0 1 182.5 105A4.5 4.5 0 0 1 191.5 105A6 6 0 0 1 179.5 105A7.5 7.5 0 0 1 194.5 105A9 9 0 0 1 176.5 105A10.5 10.5 0 0 1 197.5 105"/>
+	<!-- knight, in fighting stance -->
+	<g transform="translate(0 6)">
+	<path class="dr-m dr-o" d="M34 100H40L31 124H25ZM55 100H61L68 124H62Z"/>
+	<path class="dr-k" d="M22 124H33V128H20ZM60 124H70L74 128H60Z"/>
+	<path class="dr-r dr-o" d="M37 60H59L65 101H31Z"/>
+	<path class="dr-l" d="M33 82H62" style="stroke: var(--dr-gold, #c9a03c); stroke-width: 2.4"/>
+	<path class="dr-m dr-o" d="M39 38H57L58 59H38Z"/>
+	<path class="dr-l" d="M45 47H58M48 38V59"/>
+	<path class="dr-r dr-o" d="M43 38C43 31 49 27 53 30C50 31 49 34 50 38Z"/>
+	<!-- sword arm, raised -->
+	<path class="dr-l" d="M58 63L76 48" style="stroke-width: 6; stroke: var(--dr-ink, #3b2d1f)"/>
+	<path class="dr-l" d="M58 63L76 48" style="stroke-width: 3.6; stroke: var(--dr-steel, #d3cec2)"/>
+	<path class="dr-p dr-o" d="M78 47L106 26L108 29L80 51Z"/>
+	<path class="dr-l" d="M73 44L83 54" style="stroke-width: 2.4"/>
+	<circle class="dr-g dr-o" cx="75" cy="52" r="2.4"/>
+	<!-- shield arm, thrust forward -->
+	<path class="dr-l" d="M54 72L66 82" style="stroke-width: 6; stroke: var(--dr-ink, #3b2d1f)"/>
+	<path class="dr-l" d="M54 72L66 82" style="stroke-width: 3.6; stroke: var(--dr-steel, #d3cec2)"/>
+	<path class="dr-b dr-o" d="M62 68H83V82C83 92 72.5 99 72.5 99C72.5 99 62 92 62 82Z"/>
+	<path class="dr-l" d="M65 86L72.5 78L80 86" style="stroke: var(--dr-gold, #c9a03c); stroke-width: 3"/>
+	</g>
+	<!-- banderole -->
+	<path class="dr-p dr-o" d="M44 8C70 4 120 14 166 6L169 20C122 28 74 18 47 22Z"/>
+	<path class="dr-p dr-o" d="M44 8L39 11L47 22Z"/>
+	<path class="dr-p dr-o" d="M166 6L173 8L169 20Z"/>
+
+	</g>
+	<text class="dr-text" x="58" y="17.5" transform="rotate(-1.5 106 14)">yours, or devil’s advocate?</text>
+</svg>

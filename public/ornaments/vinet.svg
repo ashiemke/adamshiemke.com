@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 44 176" width="44" height="176">
+	<defs>
+		<path id="ivy" d="M0 0C-1.5-1-5.5 0-5.8-3C-6-5.5-3.5-5.5-2.8-5.2C-3.2-8-1-9.5 0-11C1-9.5 3.2-8 2.8-5.2C3.5-5.5 6-5.5 5.8-3C5.5 0 1.5-1 0 0Z"/>
+	</defs>
+	<g fill="none" stroke="#8b7a5e" stroke-linecap="round">
+		<path stroke-width="1.3" d="M22 0C38 33 6 55 22 88C38 121 6 143 22 176"/>
+		<g stroke-width="0.9">
+			<path d="M26.5 23C31 21 34 17 34.5 12.5"/>
+			<path d="M27 25.5C31.5 27 33.5 30.5 31.5 33C30 34.5 28 33 29.3 31.4"/>
+			<path d="M17.5 65C13 63 10 59 9.5 54.5"/>
+			<path d="M17 67.5C12.5 69 10.5 72.5 12.5 75C14 76.5 16 75 14.7 73.4"/>
+			<path d="M26.5 111C31 109 34 105 34.5 100.5"/>
+			<path d="M27 113.5C31.5 115 33.5 118.5 31.5 121C30 122.5 28 121 29.3 119.4"/>
+			<path d="M17.5 153C13 151 10 147 9.5 142.5"/>
+			<path d="M17 155.5C12.5 157 10.5 160.5 12.5 163C14 164.5 16 163 14.7 161.4"/>
+		</g>
+	</g>
+	<use href="#ivy" xlink:href="#ivy" fill="#c39a3a" transform="translate(34.5 12.5) rotate(20)"/>
+	<use href="#ivy" xlink:href="#ivy" fill="#b5452b" transform="translate(9.5 54.5) rotate(-20)"/>
+	<use href="#ivy" xlink:href="#ivy" fill="#3b5ea8" transform="translate(34.5 100.5) rotate(20)"/>
+	<use href="#ivy" xlink:href="#ivy" fill="#c39a3a" transform="translate(9.5 142.5) rotate(-20)"/>
+	<g fill="#c39a3a">
+		<circle cx="11" cy="29" r="1.7"/>
+		<circle cx="33" cy="72" r="1.7"/>
+		<circle cx="11" cy="117" r="1.7"/>
+		<circle cx="33" cy="160" r="1.7"/>
+	</g>
+</svg>

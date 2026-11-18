@@ -19,15 +19,15 @@ const fullTitle = title === SITE_TITLE ? title : `${title} · ${SITE_TITLE}`;
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="color-scheme" content="light dark" />
-<meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)" />
-<meta name="theme-color" content="#141311" media="(prefers-color-scheme: dark)" />
+<meta name="theme-color" content="#f4ecda" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#1b1711" media="(prefers-color-scheme: dark)" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 <link rel="sitemap" href="/sitemap-index.xml" />
 <link rel="alternate" type="application/rss+xml" title={SITE_TITLE} href={new URL('rss.xml', Astro.site)} />
 <meta name="generator" content={Astro.generator} />
 
 <Font cssVariable="--font-serif" preload />
-<Font cssVariable="--font-sans" preload />
+<Font cssVariable="--font-label" preload />
 <Font cssVariable="--font-mono" />
 
 <link rel="canonical" href={canonicalURL} />

@@ -1,48 +1,84 @@
 /*
   Type system
-  - Body: Literata, a serif designed for long-form screen reading (large x-height, open forms).
-  - Headings and UI: Figtree, a friendly sans that separates structure from prose at a glance.
-  - Measure ~65 characters, line height 1.7, and generous section spacing so long text reads in chunks.
+  - Body and headings: Alegreya, a book face with calligraphic roots that stays easy to read at length.
+  - Labels, navigation and metadata: Alegreya SC (true small capitals), like a manuscript's rubrics.
+  - Measure ~65 characters, line height 1.65, and generous section spacing so long text reads in chunks.
+
+  Theme: a Gothic illuminated manuscript. Vellum paper, iron-gall ink, vermilion rubrics,
+  lapis and gold for illumination, ivy borders and marginal drawings (drolleries).
+  Ornaments live in /public/ornaments; drolleries in src/assets/drolleries.
+  Every ornament sits in a margin or between sections, never behind running text.
 */
 
 /* ---------- Tokens ---------- */
 
 :root {
-	--bg: #fcfbf8;
-	--surface: #f4f0e8;
-	--text: #23211e;
-	--text-2: #4b4740;
-	--muted: #716c63;
-	--rule: #e6e0d5;
-	--accent: #b2441d;
-	--accent-soft: rgba(178, 68, 29, 0.42);
-	--accent-tint: rgba(178, 68, 29, 0.09);
-	--accent-tint-2: rgba(178, 68, 29, 0.22);
-	--mark: rgba(214, 120, 60, 0.16);
-	--pop-bg: #ffffff;
-	--shadow: 0 12px 32px rgba(40, 30, 15, 0.12), 0 2px 6px rgba(40, 30, 15, 0.06);
+	--bg: #f4ecda;
+	--surface: #ece2cb;
+	--text: #2a2017;
+	--text-2: #4b3f31;
+	--muted: #6f604c;
+	--rule: #d8c8a6;
+	--accent: #a8361f;
+	--accent-soft: rgba(168, 54, 31, 0.42);
+	--accent-tint: rgba(168, 54, 31, 0.08);
+	--accent-tint-2: rgba(168, 54, 31, 0.2);
+	--lapis: #2b4c8f;
+	--lapis-deep: #24427f;
+	--gold: #b08a2e;
+	--gold-soft: #c9a75e;
+	--gold-leaf: #ecd08a;
+	--mark: rgba(214, 178, 92, 0.3);
+	--pop-bg: #f8f2e4;
+	--shadow: 0 12px 32px rgba(60, 40, 15, 0.14), 0 2px 6px rgba(60, 40, 15, 0.08);
 
-	--measure: 40rem;
+	/* Drollery pigments */
+	--dr-ink: #3b2d1f;
+	--dr-paper: #f6eedc;
+	--dr-steel: #d3cec2;
+	--dr-skin: #ecd2b4;
+	--dr-red: #b5452b;
+	--dr-blue: #35589e;
+	--dr-gold: #c9a03c;
+	--dr-green: #6f8a4c;
+	--dr-brown: #8a6a45;
+
+	--measure: 36rem;
 	--gutter: 16px;
-	--radius: 10px;
+	--radius: 4px;
 	color-scheme: light;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--bg: #151412;
-		--surface: #1f1d1a;
-		--text: #ebe7df;
-		--text-2: #c9c4ba;
-		--muted: #9c968c;
-		--rule: #33302b;
-		--accent: #ec8a5e;
-		--accent-soft: rgba(236, 138, 94, 0.5);
-		--accent-tint: rgba(236, 138, 94, 0.1);
-		--accent-tint-2: rgba(236, 138, 94, 0.28);
-		--mark: rgba(236, 138, 94, 0.16);
-		--pop-bg: #26241f;
+		--bg: #1b1711;
+		--surface: #252017;
+		--text: #ebe2cf;
+		--text-2: #cfc4ad;
+		--muted: #a3967f;
+		--rule: #3c3428;
+		--accent: #e2805f;
+		--accent-soft: rgba(226, 128, 95, 0.5);
+		--accent-tint: rgba(226, 128, 95, 0.1);
+		--accent-tint-2: rgba(226, 128, 95, 0.28);
+		--lapis: #8fa9e6;
+		--lapis-deep: #24427f;
+		--gold: #d6b25c;
+		--gold-soft: #8a7340;
+		--gold-leaf: #ecd08a;
+		--mark: rgba(214, 178, 92, 0.2);
+		--pop-bg: #29231a;
 		--shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
+
+		--dr-ink: #cdbf9f;
+		--dr-paper: #3a3226;
+		--dr-steel: #7f7a6e;
+		--dr-skin: #c9a988;
+		--dr-red: #c9573a;
+		--dr-blue: #5a7cc4;
+		--dr-gold: #d6b25c;
+		--dr-green: #8aa565;
+		--dr-brown: #a7845a;
 		color-scheme: dark;
 	}
 }
@@ -73,8 +109,8 @@ body {
 	background: var(--bg);
 	color: var(--text);
 	font-family: var(--font-serif);
-	font-size: 1.125rem;
-	line-height: 1.7;
+	font-size: 1.1875rem;
+	line-height: 1.65;
 	font-optical-sizing: auto;
 	font-kerning: normal;
 	-webkit-font-smoothing: antialiased;
@@ -84,23 +120,23 @@ body {
 
 @media (min-width: 48rem) {
 	body {
-		font-size: 1.1875rem;
+		font-size: 1.25rem;
 	}
 }
 
 ::selection {
-	background: var(--accent-tint-2);
+	background: var(--mark);
 }
 
 h1,
 h2,
 h3,
 h4 {
-	font-family: var(--font-sans);
+	font-family: var(--font-serif);
 	color: var(--text);
 	line-height: 1.2;
 	font-weight: 700;
-	letter-spacing: -0.015em;
+	letter-spacing: -0.005em;
 	text-wrap: balance;
 }
 
@@ -128,7 +164,7 @@ a:hover {
 
 strong,
 b {
-	font-weight: 650;
+	font-weight: 700;
 }
 
 code {
@@ -140,9 +176,13 @@ code {
 }
 
 hr {
-	border: none;
-	border-top: 1px solid var(--rule);
+	height: 20px;
 	margin: 3rem 0;
+	border: none;
+	background:
+		url('/ornaments/sprig.svg') center / 96px 20px no-repeat,
+		linear-gradient(var(--rule), var(--rule)) left center / calc(50% - 62px) 1px no-repeat,
+		linear-gradient(var(--rule), var(--rule)) right center / calc(50% - 62px) 1px no-repeat;
 }
 
 img {
@@ -177,7 +217,7 @@ sup {
 	padding: 0.5rem 0.75rem;
 	background: var(--text);
 	color: var(--bg);
-	font-family: var(--font-sans);
+	font-family: var(--font-label);
 	font-size: 0.875rem;
 	border-radius: 6px;
 	z-index: 40;
@@ -192,7 +232,7 @@ sup {
 	position: fixed;
 	inset: 0 0 auto 0;
 	height: 3px;
-	background: var(--accent);
+	background: var(--gold);
 	transform-origin: 0 50%;
 	transform: scaleX(0);
 	z-index: 30;
@@ -223,8 +263,9 @@ sup {
 	justify-content: space-between;
 	align-items: baseline;
 	gap: 1rem;
-	font-family: var(--font-sans);
+	font-family: var(--font-label);
 	font-size: 0.9375rem;
+	letter-spacing: 0.03em;
 }
 
 .site-header {
@@ -232,12 +273,17 @@ sup {
 }
 
 .wordmark {
-	font-family: var(--font-sans);
-	font-size: 1.125rem;
-	font-weight: 750;
-	letter-spacing: -0.015em;
+	display: inline-block;
+	font-family: var(--font-label);
+	font-size: 1.15rem;
+	font-weight: 700;
+	letter-spacing: 0.02em;
 	color: var(--text);
 	text-decoration: none;
+}
+
+.wordmark::first-letter {
+	color: var(--accent);
 }
 
 .site-nav {
@@ -267,13 +313,11 @@ sup {
 
 .status {
 	display: inline-block;
-	padding: 0.15rem 0.6rem;
-	border-radius: 999px;
-	background: var(--accent-tint);
 	color: var(--accent);
-	font-family: var(--font-sans);
-	font-size: 0.8125rem;
-	font-weight: 600;
+	font-family: var(--font-label);
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0.03em;
 	line-height: 1.5;
 }
 
@@ -294,6 +338,8 @@ sup {
 }
 
 .section-label {
+	font-family: var(--font-label);
+	letter-spacing: 0.04em;
 	font-size: 0.9375rem;
 	font-weight: 650;
 	letter-spacing: 0;
@@ -319,7 +365,7 @@ sup {
 	align-items: center;
 	gap: 0.75rem;
 	margin: 0 0 0.5rem;
-	font-family: var(--font-sans);
+	font-family: var(--font-label);
 	font-size: 0.875rem;
 	color: var(--muted);
 }
@@ -381,9 +427,23 @@ sup {
 }
 
 .post-header {
+	position: relative;
 	padding: 3.5rem 0 2.25rem;
 	margin-bottom: 2.5rem;
-	border-bottom: 1px solid var(--rule);
+}
+
+.post-header::after {
+	--double: linear-gradient(var(--gold-soft) 1px, transparent 1px, transparent 3px, var(--gold-soft) 3px);
+	content: '';
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -10px;
+	height: 20px;
+	background:
+		url('/ornaments/sprig.svg') center / 90px 18px no-repeat,
+		var(--double) left center / calc(50% - 56px) 4px no-repeat,
+		var(--double) right center / calc(50% - 56px) 4px no-repeat;
 }
 
 .post-meta {
@@ -392,8 +452,9 @@ sup {
 	align-items: center;
 	gap: 0.6rem 1rem;
 	margin: 0 0 1.1rem;
-	font-family: var(--font-sans);
+	font-family: var(--font-label);
 	font-size: 0.9375rem;
+	letter-spacing: 0.03em;
 	color: var(--muted);
 }
 
@@ -403,7 +464,7 @@ sup {
 
 .byline {
 	color: var(--text-2);
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .post-meta .sep {
@@ -413,14 +474,14 @@ sup {
 .post-title {
 	margin: 0;
 	font-size: clamp(2.25rem, 4.5vw + 0.9rem, 3.4rem);
-	line-height: 1.06;
-	letter-spacing: -0.03em;
-	font-weight: 780;
+	line-height: 1.05;
+	letter-spacing: -0.01em;
+	font-weight: 800;
 }
 
 .post-updated {
 	margin: 1rem 0 0;
-	font-family: var(--font-sans);
+	font-family: var(--font-label);
 	font-size: 0.875rem;
 	color: var(--muted);
 }
@@ -435,8 +496,8 @@ sup {
 /* ---------- Contents ---------- */
 
 .toc {
-	font-family: var(--font-sans);
-	font-size: 0.875rem;
+	font-family: var(--font-serif);
+	font-size: 0.95rem;
 	line-height: 1.35;
 }
 
@@ -459,8 +520,8 @@ sup {
 
 .toc-num {
 	color: var(--accent);
-	font-variant-numeric: tabular-nums;
-	font-weight: 650;
+	font-variant-numeric: lining-nums tabular-nums;
+	font-weight: 800;
 }
 
 .toc-rail-nav {
@@ -474,9 +535,11 @@ sup {
 
 .toc-label {
 	margin: 0 0 0.75rem;
+	font-family: var(--font-label);
 	font-size: 0.875rem;
 	font-weight: 700;
-	color: var(--text-2);
+	letter-spacing: 0.05em;
+	color: var(--accent);
 }
 
 .toc-rail-nav ol {
@@ -504,7 +567,9 @@ sup {
 
 .toc-inline summary {
 	cursor: pointer;
-	font-weight: 650;
+	font-family: var(--font-label);
+	font-weight: 700;
+	letter-spacing: 0.04em;
 	color: var(--text-2);
 }
 
@@ -543,9 +608,21 @@ sup {
 	font-size: 1.5rem;
 	margin: 3.5rem 0 1.1rem;
 	padding-top: 2.25rem;
-	border-top: 1px solid var(--rule);
 	line-height: 1.22;
 	scroll-margin-top: 0.5rem;
+}
+
+.prose h2::before {
+	content: '';
+	position: absolute;
+	top: -10px;
+	left: 0;
+	right: 0;
+	height: 20px;
+	background:
+		url('/ornaments/sprig.svg') center / 96px 20px no-repeat,
+		linear-gradient(var(--rule), var(--rule)) left center / calc(50% - 62px) 1px no-repeat,
+		linear-gradient(var(--rule), var(--rule)) right center / calc(50% - 62px) 1px no-repeat;
 }
 
 @media (min-width: 48rem) {
@@ -568,32 +645,22 @@ sup {
 	margin: 2.5rem 0 0.75rem;
 }
 
-/* Numbered section badge (from plugins/rehype-heading-numbers.mjs) */
+/* Section numbers are rubricated: red numerals, hung in the margin on wide screens.
+   (The number span comes from plugins/rehype-heading-numbers.mjs.) */
 .heading-num {
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 2rem;
-	height: 2rem;
-	border-radius: 50%;
-	background: var(--accent-tint);
 	color: var(--accent);
-	font-size: 0.9375rem;
-	font-weight: 750;
-	letter-spacing: 0;
-	font-variant-numeric: tabular-nums;
-	line-height: 1;
+	font-weight: 800;
+	font-variant-numeric: lining-nums tabular-nums;
 }
 
 .prose h2.numbered {
 	display: flex;
-	align-items: flex-start;
-	gap: 0.7rem;
+	align-items: baseline;
+	gap: 0.5rem;
 }
 
 .prose h2.numbered .heading-num {
 	flex: none;
-	margin-top: 0.05em;
 }
 
 @media (min-width: 60rem) {
@@ -604,11 +671,8 @@ sup {
 	.prose h2.numbered .heading-num {
 		position: absolute;
 		right: 100%;
-		top: calc(2.75rem + 0.12em);
-		margin: 0 1rem 0 0;
-		width: 2.25rem;
-		height: 2.25rem;
-		font-size: 1rem;
+		top: auto;
+		margin-right: 0.85rem;
 	}
 }
 
@@ -623,7 +687,7 @@ sup {
 }
 
 .prose li::marker {
-	color: var(--muted);
+	color: var(--accent);
 }
 
 /* Lists whose items open with a bold phrase read as a set of key ideas. */
@@ -634,23 +698,37 @@ sup {
 }
 
 .prose ul:has(> li:first-child > strong:first-child) > li {
+	position: relative;
 	margin: 0 0 1.1rem;
-	padding: 0.05rem 0 0.05rem 1.1rem;
-	border-left: 3px solid var(--accent-tint-2);
+	padding: 0 0 0 1.5rem;
+}
+
+.prose ul:has(> li:first-child > strong:first-child) > li::before {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0.45em;
+	width: 15px;
+	height: 14px;
+	background: var(--accent);
+	mask: url('/ornaments/ivy.svg') center / contain no-repeat;
+	transform: rotate(90deg);
+}
+
+.prose ul:has(> li:first-child > strong:first-child) > li:nth-child(even)::before {
+	background: var(--lapis);
 }
 
 .prose ul:has(> li:first-child > strong:first-child) > li > strong:first-child {
 	display: block;
-	margin-bottom: 0.2rem;
-	font-family: var(--font-sans);
-	font-size: 0.98em;
+	margin-bottom: 0.1rem;
 	font-weight: 700;
 	color: var(--text);
 }
 
 .prose blockquote {
 	padding-left: 1.25rem;
-	border-left: 3px solid var(--accent-tint-2);
+	border-left: 3px double var(--gold-soft);
 	color: var(--text-2);
 	font-style: italic;
 }
@@ -673,7 +751,7 @@ sup {
 
 .principle-index {
 	margin: 1.5rem 0 1rem;
-	font-family: var(--font-sans);
+	font-family: var(--font-serif);
 }
 
 .principle-index ol {
@@ -708,7 +786,7 @@ sup {
 	background: var(--surface);
 	border: 1px solid transparent;
 	color: var(--text);
-	font-size: 0.9375rem;
+	font-size: 0.98rem;
 	font-weight: 600;
 	line-height: 1.3;
 	text-decoration: none;
@@ -725,23 +803,18 @@ sup {
 
 .principle-index a:hover {
 	color: var(--text);
-	border-color: var(--accent-soft);
+	border-color: var(--gold-soft);
 	background: var(--accent-tint);
 }
 
 .pi-num {
 	flex: none;
-	display: inline-flex;
-	align-items: center;
-	justify-content: center;
-	width: 1.75rem;
-	height: 1.75rem;
-	border-radius: 50%;
-	background: var(--bg);
+	width: 1.5rem;
+	text-align: right;
 	color: var(--accent);
-	font-size: 0.8125rem;
-	font-weight: 750;
-	font-variant-numeric: tabular-nums;
+	font-size: 1.05rem;
+	font-weight: 800;
+	font-variant-numeric: lining-nums tabular-nums;
 }
 
 /* ---------- Citations and notes ---------- */
@@ -749,7 +822,7 @@ sup {
 .cite a,
 a[data-footnote-ref] {
 	padding: 0 0.15em;
-	font-family: var(--font-sans);
+	font-family: var(--font-label);
 	font-size: 0.72em;
 	font-weight: 700;
 	color: var(--accent);
@@ -791,7 +864,7 @@ a[data-footnote-ref]:target {
 	top: 0.15em;
 	width: 1.5rem;
 	text-align: right;
-	font-family: var(--font-sans);
+	font-family: var(--font-label);
 	font-size: 0.85em;
 	font-weight: 700;
 	color: var(--accent);
@@ -811,7 +884,7 @@ a[data-footnote-ref]:target {
 .backref,
 [data-footnote-backref] {
 	margin-left: 0.2rem;
-	font-family: var(--font-sans);
+	font-family: var(--font-label);
 	color: var(--accent);
 	text-decoration: none;
 }
@@ -843,7 +916,7 @@ a[data-footnote-ref]:target {
 }
 
 .footnotes li::marker {
-	font-family: var(--font-sans);
+	font-family: var(--font-label);
 	font-weight: 700;
 	color: var(--accent);
 }
@@ -851,7 +924,7 @@ a[data-footnote-ref]:target {
 .footnotes::before {
 	content: 'Notes';
 	display: block;
-	font-family: var(--font-sans);
+	font-family: var(--font-label);
 	font-size: 1rem;
 	font-weight: 700;
 	color: var(--text-2);
@@ -863,7 +936,7 @@ a[data-footnote-ref]:target {
 	max-width: min(26rem, calc(100vw - 32px));
 	padding: 0.85rem 1rem;
 	background: var(--pop-bg);
-	border: 1px solid var(--rule);
+	border: 1px solid var(--gold-soft);
 	border-radius: var(--radius);
 	box-shadow: var(--shadow);
 	color: var(--text-2);
@@ -894,6 +967,7 @@ a[data-footnote-ref]:target {
 	margin: 2.75rem 0;
 	padding: 1.25rem 1.1rem 1.2rem;
 	background: var(--surface);
+	border: 3px double var(--gold-soft);
 	border-radius: var(--radius);
 	font-size: 0.94em;
 	line-height: 1.65;
@@ -907,20 +981,18 @@ a[data-footnote-ref]:target {
 }
 
 .prose .sidebar-label {
-	display: inline-block;
-	margin: 0 0 0.6rem;
-	padding: 0.1rem 0.6rem;
-	border-radius: 999px;
-	background: var(--accent-tint);
-	font-family: var(--font-sans);
-	font-size: 0.8125rem;
-	font-weight: 650;
+	display: block;
+	margin: 0 0 0.3rem;
+	font-family: var(--font-label);
+	font-size: 0.875rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
 	color: var(--accent);
 }
 
 .prose .sidebar-title {
 	margin: 0 0 0.75rem;
-	font-family: var(--font-sans);
+	font-family: var(--font-serif);
 	font-size: 1.3rem;
 	font-weight: 700;
 	line-height: 1.25;
@@ -936,7 +1008,7 @@ a[data-footnote-ref]:target {
 
 .example {
 	margin: 1.5rem 0 1.75rem;
-	border: 1px solid var(--rule);
+	border: 1px solid var(--gold-soft);
 	border-radius: var(--radius);
 	background: var(--surface);
 	overflow: hidden;
@@ -947,10 +1019,11 @@ a[data-footnote-ref]:target {
 	align-items: center;
 	gap: 0.5rem;
 	padding: 0.6rem 1.1rem;
-	border-bottom: 1px solid var(--rule);
-	font-family: var(--font-sans);
+	border-bottom: 1px solid var(--gold-soft);
+	font-family: var(--font-label);
 	font-size: 0.875rem;
-	font-weight: 650;
+	font-weight: 700;
+	letter-spacing: 0.04em;
 	color: var(--text-2);
 }
 
@@ -959,12 +1032,12 @@ a[data-footnote-ref]:target {
 	width: 0.5rem;
 	height: 0.5rem;
 	border-radius: 50%;
-	background: var(--accent);
+	background: var(--gold);
 }
 
 .example-body {
 	padding: 1rem 1.1rem 1.1rem;
-	font-family: var(--font-sans);
+	font-family: var(--font-serif);
 	font-size: 0.98rem;
 	line-height: 1.65;
 	color: var(--text-2);
@@ -979,15 +1052,21 @@ a[data-footnote-ref]:target {
 .prose #tldr,
 .prose #tldr + ol {
 	background: var(--surface);
+	border: 1px solid var(--gold-soft);
+}
+
+.prose #tldr::before {
+	content: none;
 }
 
 .prose #tldr {
 	margin: 0;
 	padding: 1.25rem 1.25rem 0.35rem;
-	border-top: 0;
+	border-bottom: 0;
 	border-radius: var(--radius) var(--radius) 0 0;
-	font-size: 0.8125rem;
-	font-weight: 750;
+	font-family: var(--font-label);
+	font-size: 0.875rem;
+	font-weight: 700;
 	letter-spacing: 0.09em;
 	line-height: 1.4;
 	color: var(--accent);
@@ -998,6 +1077,7 @@ a[data-footnote-ref]:target {
 	counter-reset: tldr;
 	margin: 0 0 1rem;
 	padding: 0.75rem 1.25rem 1.35rem;
+	border-top: 0;
 	border-radius: 0 0 var(--radius) var(--radius);
 }
 
@@ -1013,7 +1093,7 @@ a[data-footnote-ref]:target {
 	counter-increment: tldr;
 	position: relative;
 	margin: 0 0 1rem;
-	padding-left: 2.85rem;
+	padding-left: 1.75rem;
 }
 
 .prose #tldr + ol > li:last-child {
@@ -1024,24 +1104,15 @@ a[data-footnote-ref]:target {
 	content: counter(tldr);
 	position: absolute;
 	left: 0;
-	top: 0.12em;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 2rem;
-	height: 2rem;
-	border-radius: 50%;
-	background: var(--accent-tint);
+	top: 0;
 	color: var(--accent);
-	font-family: var(--font-sans);
-	font-size: 0.9375rem;
-	font-weight: 750;
-	line-height: 1;
+	font-size: 1.06em;
+	font-weight: 800;
+	font-variant-numeric: lining-nums;
 }
 
 .prose #tldr + ol > li > strong:first-child {
 	display: block;
-	font-family: var(--font-sans);
 	font-size: 1.06em;
 	font-weight: 700;
 }
@@ -1050,7 +1121,7 @@ a[data-footnote-ref]:target {
 
 .settings {
 	margin: 1.5rem 0 1.75rem;
-	border: 1px solid var(--rule);
+	border: 1px solid var(--gold-soft);
 	border-radius: var(--radius);
 }
 
@@ -1072,9 +1143,10 @@ a[data-footnote-ref]:target {
 }
 
 .setting-name {
-	font-family: var(--font-sans);
+	font-family: var(--font-label);
 	font-size: 1.02rem;
 	font-weight: 700;
+	letter-spacing: 0.02em;
 	line-height: 1.3;
 }
 
@@ -1082,7 +1154,7 @@ a[data-footnote-ref]:target {
 	display: flex;
 	align-items: center;
 	gap: 0.75rem;
-	font-family: var(--font-sans);
+	font-family: var(--font-label);
 	font-size: 0.875rem;
 	font-weight: 650;
 	color: var(--accent);
@@ -1119,12 +1191,17 @@ a[data-footnote-ref]:target {
 	background: var(--accent);
 }
 
+/* Past the end of the scale, the meter sprouts a leaf. */
 .seg.over {
 	position: absolute;
 	right: -1px;
 	top: 0;
-	transform: translateY(-0.3rem) rotate(-28deg);
-	transform-origin: left center;
+	width: 13px;
+	height: 12px;
+	border-radius: 0;
+	background: var(--gold);
+	mask: url('/ornaments/ivy.svg') center / contain no-repeat;
+	transform: translate(2px, -0.45rem) rotate(28deg);
 }
 
 @media (max-width: 34rem) {
@@ -1145,12 +1222,151 @@ a[data-footnote-ref]:target {
 	padding: 1.1rem 1.25rem;
 	border: 1px dashed color-mix(in srgb, var(--muted) 55%, transparent);
 	border-radius: var(--radius);
-	font-family: var(--font-sans);
-	font-size: 0.97rem;
+	font-size: 1rem;
+	font-style: italic;
 	line-height: 1.6;
 	color: var(--text-2);
 }
 
 .prose .signoff > :last-child {
 	margin-bottom: 0;
+}
+
+/* ---------- Illuminated initial ---------- */
+
+/* The first paragraph of a post or page opens with a gilded letter on a lapis ground. */
+.prose > p:first-of-type {
+	position: relative;
+	display: flow-root;
+}
+
+.prose > p:first-of-type::first-letter {
+	float: left;
+	margin: 0.1em 0.14em 0 0;
+	padding: 0.12em 0.17em 0.08em;
+	font-size: 2.55em;
+	font-weight: 700;
+	line-height: 1;
+	color: var(--gold-leaf);
+	background: url('/ornaments/filigree.svg') 0 0 / 0.42em, var(--lapis-deep);
+	border: 2px solid #b8902f;
+	border-radius: 2px;
+	box-shadow:
+		inset 0 0 0 2px var(--lapis-deep),
+		inset 0 0 0 3px rgba(236, 208, 138, 0.55);
+}
+
+/* A sprig of ivy grows from the initial into the margin. */
+@media (min-width: 60rem) {
+	.prose > p:first-of-type::before {
+		content: '';
+		position: absolute;
+		left: -3.1rem;
+		top: 0.2rem;
+		width: 26px;
+		height: 230px;
+		background: url('/ornaments/vinet.svg') 0 -20px / 26px auto no-repeat;
+		mask: linear-gradient(#000 55%, transparent);
+		pointer-events: none;
+	}
+}
+
+/* ---------- Ivy border and marginal drawings (wide screens) ---------- */
+
+.post-shell {
+	overflow-x: clip;
+}
+
+@media (min-width: 80rem) {
+	.post {
+		position: relative;
+	}
+
+	.post::after {
+		content: '';
+		position: absolute;
+		top: 1.5rem;
+		bottom: 0;
+		left: calc(100% + 15.5rem);
+		width: 30px;
+		background: url('/ornaments/vinet.svg') 0 0 / 30px auto repeat-y;
+		pointer-events: none;
+	}
+}
+
+/*
+  A drollery (see Drollery.astro) sits right after a section's opening paragraph.
+  Narrow screens: a small centred picture. Wide screens: it moves into the right margin,
+  pulled up beside the section heading, between the text and the ivy border.
+*/
+.drollery {
+	width: min(var(--dr-w, 13rem), 100%);
+	margin: 0.25rem auto 1.75rem;
+}
+
+.drollery svg {
+	display: block;
+	width: 100%;
+	height: auto;
+	overflow: visible;
+}
+
+@media (min-width: 80rem) {
+	.drollery {
+		position: relative;
+		width: auto;
+		height: 0;
+		margin: 0;
+	}
+
+	.drollery svg {
+		position: absolute;
+		left: calc(100% + 2.25rem);
+		top: var(--dr-top, -5.5rem);
+		width: min(var(--dr-w, 12rem), 12.25rem);
+	}
+}
+
+.dr-art {
+	filter: url('#dr-rough');
+}
+
+.dr-o {
+	stroke: var(--dr-ink);
+	stroke-width: 1.3;
+	stroke-linejoin: round;
+	stroke-linecap: round;
+}
+
+.dr-l {
+	fill: none;
+	stroke: var(--dr-ink);
+	stroke-width: 1.3;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
+.dr-t {
+	fill: none;
+	stroke: var(--dr-ink);
+	stroke-width: 0.9;
+	stroke-linecap: round;
+	stroke-dasharray: 0.5 3.5;
+}
+
+.dr-r { fill: var(--dr-red); }
+.dr-b { fill: var(--dr-blue); }
+.dr-g { fill: var(--dr-gold); }
+.dr-v { fill: var(--dr-green); }
+.dr-n { fill: var(--dr-brown); }
+.dr-s { fill: var(--dr-skin); }
+.dr-p { fill: var(--dr-paper); }
+.dr-m { fill: var(--dr-steel); }
+.dr-k { fill: var(--dr-ink); }
+
+.dr-text {
+	font-family: var(--font-serif);
+	font-style: italic;
+	font-size: 9px;
+	fill: var(--dr-ink);
 }

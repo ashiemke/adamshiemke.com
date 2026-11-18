@@ -1,0 +1,29 @@
+---
+/**
+ * A marginal drawing (drollery) that jokes about the section it sits in.
+ * Put it right after the section's opening paragraph:  <Drollery art="knight-snail" />
+ * Drawings live in src/assets/drolleries/<art>.svg and use the .dr-* colour classes
+ * from global.css, so they follow light and dark mode. They're decorative, so
+ * screen readers skip them.
+ *
+ * width: display width (default 13rem on narrow screens; capped at 12.25rem in the margin).
+ * top:   how far to pull it up beside the heading on wide screens (default -5.5rem).
+ */
+interface Props {
+	art: string;
+	width?: string;
+	top?: string;
+}
+
+const { art, width, top } = Astro.props;
+const drawings = import.meta.glob<string>('../assets/drolleries/*.svg', {
+	query: '?raw',
+	import: 'default',
+	eager: true,
+});
+const svg = drawings[`../assets/drolleries/${art}.svg`];
+if (!svg) throw new Error(`Drollery "${art}" not found in src/assets/drolleries/`);
+const style = [width && `--dr-w: ${width}`, top && `--dr-top: ${top}`].filter(Boolean).join('; ');
+---
+
+<div class="drollery" aria-hidden="true" style={style || undefined} set:html={svg} />

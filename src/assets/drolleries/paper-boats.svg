@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120">
+	<g class="dr-art">
+
+	<!-- bank -->
+	<path class="dr-v dr-o" d="M6 90C20 87 40 92 58 89C62 90 64 94 66 100V116H6Z"/>
+	<!-- stream -->
+	<path class="dr-b dr-o" d="M62 98C74 94 82 102 94 98C106 94 114 102 126 98C138 94 148 102 160 98C170 95 182 100 194 97L194 114C182 117 170 112 160 114C148 117 138 110 126 114C114 118 106 110 94 114C82 118 74 110 62 114Z"/>
+	<path class="dr-l" d="M100 108C104 106 108 108 112 106M150 108C154 106 158 108 162 106" style="stroke: var(--dr-paper, #f5ecd6); stroke-width: 1.2"/>
+	<!-- hare -->
+	<ellipse class="dr-n dr-o" cx="32" cy="76" rx="18" ry="12"/>
+	<circle class="dr-p dr-o" cx="15" cy="76" r="4.5"/>
+	<path class="dr-n dr-o" d="M22 88H34L34 91H20ZM40 86H52V90H38Z"/>
+	<path class="dr-n dr-o" d="M42 66C38 44 46 40 50 44C52 52 52 62 50 68Z"/>
+	<path class="dr-n dr-o" d="M50 66C54 44 62 44 63 50C63 58 59 64 56 68Z"/>
+	<circle class="dr-n dr-o" cx="54" cy="70" r="9"/>
+	<path class="dr-n dr-o" d="M62 68L69 71L62 73"/>
+	<circle class="dr-k" cx="57" cy="68" r="1.4"/>
+	<path class="dr-l" d="M52 78L64 90" style="stroke-width: 4; stroke: var(--dr-ink, #3b2d1f)"/>
+	<path class="dr-l" d="M52 78L64 90" style="stroke-width: 1.8; stroke: var(--dr-brown, #8a5a2b)"/>
+	<!-- boat 1: tipping over -->
+	<path class="dr-p dr-o" d="M72 100L90 92L96 98L86 106Z"/>
+	<path class="dr-p dr-o" d="M80 96L84 76L94 94Z"/>
+	<!-- boat 2 -->
+	<path class="dr-p dr-o" d="M102 100H130L124 108H108Z"/>
+	<path class="dr-p dr-o" d="M104 100L116 82L128 100Z"/>
+	<!-- boat 3: ahead -->
+	<path class="dr-p dr-o" d="M140 96H168L162 104H146Z"/>
+	<path class="dr-p dr-o" d="M154 96V70L166 96Z"/>
+	<path class="dr-p dr-o" d="M154 76L144 96H154Z"/>
+	<!-- boat 4: far -->
+	<path class="dr-p dr-o" d="M178 96H192L190 102H180Z"/>
+	<path class="dr-p dr-o" d="M183 96L186 86L191 96Z"/>
+	</g>
+</svg>

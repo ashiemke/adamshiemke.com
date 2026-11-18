@@ -48,8 +48,11 @@ In an `.mdx` post, import the components at the top of the file from `../../comp
 - `<PrincipleIndex headings={props.headings} />`: an overview of the post's numbered `## 1. …` sections, linking to each.
 - `<Settings>` with `<Setting name="…" level="High" value={4}>…</Setting>` rows: a panel of named levels with a 5-step meter. A `value` above 5 overflows the meter.
 - `<Signoff>…</Signoff>`: a closing note set apart from the body.
+- `<Drollery art="knight-snail" />`: a marginal drawing that jokes about the section's point. Place it right after the section's opening paragraph. On wide screens it sits in the right margin; on narrower ones it's a small centred picture. Optional `width` and `top` (how far to pull it up beside the heading). Drawings live in `src/assets/drolleries/`, whose README is the brief for drawing new ones.
 
-Styling conventions that need no component: a `## TL;DR` heading followed by a numbered list is set as a summary card, an `## N. Title` heading gets a numbered badge, the first paragraph after any `##` heading is set a step larger (lead with the section's point), and a bullet list whose items start with **bold text** is shown as a set of key ideas.
+The look is a Gothic illuminated manuscript: Alegreya type, vellum paper, red rubric numerals, a gilded initial on the first paragraph, leafy section breaks and an ivy border on wide screens. Ornaments are in `public/ornaments/`.
+
+Styling conventions that need no component: a `## TL;DR` heading followed by a numbered list is set as a summary card, an `## N. Title` heading gets a red numeral (hung in the margin on wide screens), the first paragraph after any `##` heading is set a step larger (lead with the section's point), a bullet list whose items start with **bold text** is shown as a set of key ideas with ivy-leaf markers, and the first paragraph of the post gets the illuminated initial.
 
 Markdown inside a component needs a blank line before and after it, or it will not render as Markdown:
 

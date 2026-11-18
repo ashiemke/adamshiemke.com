@@ -24,7 +24,7 @@ export default defineConfig({
 			useDarkModeMediaQuery: true,
 			styleOverrides: {
 				codeFontFamily: 'var(--font-mono)',
-				uiFontFamily: 'var(--font-sans)',
+				uiFontFamily: 'var(--font-label)',
 				borderRadius: '6px',
 				codeFontSize: '0.875rem',
 			},
@@ -34,22 +34,24 @@ export default defineConfig({
 	],
 	fonts: [
 		{
+			// Body and headings: a book face with calligraphic roots, very readable at text sizes.
 			provider: fontProviders.fontsource(),
-			name: 'Literata',
+			name: 'Alegreya',
 			cssVariable: '--font-serif',
-			weights: ['200 900'],
+			weights: ['400 900'],
 			styles: ['normal', 'italic'],
 			subsets: ['latin'],
 			fallbacks: ['Georgia', 'serif'],
 		},
 		{
+			// Labels, navigation and metadata, set in true small capitals.
 			provider: fontProviders.fontsource(),
-			name: 'Figtree',
-			cssVariable: '--font-sans',
-			weights: ['300 900'],
+			name: 'Alegreya SC',
+			cssVariable: '--font-label',
+			weights: [400, 500, 700],
 			styles: ['normal'],
 			subsets: ['latin'],
-			fallbacks: ['system-ui', 'sans-serif'],
+			fallbacks: ['Georgia', 'serif'],
 		},
 		{
 			provider: fontProviders.fontsource(),

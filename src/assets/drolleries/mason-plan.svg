@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 140">
+	<g class="dr-art">
+
+	<!-- ground -->
+	<path class="dr-l" d="M6 128C30 125 60 130 100 127C140 124 170 130 204 127"/>
+	<path class="dr-v dr-o" d="M12 127C13 122 15 120 17 118C17 122 18 125 20 127Z"/>
+	<path class="dr-v dr-o" d="M150 128C151 123 152 121 155 119C154 123 155 126 157 128Z"/>
+	<!-- plan board on trestle legs -->
+	<path class="dr-l" d="M110 114L106 128M156 114L162 128" style="stroke-width: 3"/>
+	<path class="dr-n dr-o" d="M102 68H164V114H102Z"/>
+	<path class="dr-p dr-o" d="M106 72H160V110H106Z"/>
+	<path class="dr-g dr-o" d="M127 75H137V83H151V92H137V108H127V92H113V83H127Z"/>
+	<path class="dr-t" d="M114 103C120 108 128 109 133 107"/>
+	<!-- heap of uncut stones -->
+	<path class="dr-p dr-o" d="M170 127C168 119 172 114 180 114C188 113 194 118 193 127Z"/>
+	<path class="dr-p dr-o" d="M180 114C178 107 184 102 190 104C196 105 198 110 195 116Z"/>
+	<path class="dr-p dr-o" d="M192 127C192 121 195 118 200 119C204 120 205 124 204 127Z"/>
+	<path class="dr-l" d="M176 122L181 119M186 108L190 110"/>
+	<!-- kneeling mason -->
+	<path class="dr-l" d="M52 102L46 124L26 125" style="stroke-width: 7.5; stroke: var(--dr-ink, #3b2d1f)"/>
+	<path class="dr-l" d="M52 102L46 124L26 125" style="stroke-width: 5; stroke: var(--dr-brown, #7a5230)"/>
+	<path class="dr-l" d="M58 102L76 108L80 124" style="stroke-width: 7.5; stroke: var(--dr-ink, #3b2d1f)"/>
+	<path class="dr-l" d="M58 102L76 108L80 124" style="stroke-width: 5; stroke: var(--dr-brown, #7a5230)"/>
+	<path class="dr-k" d="M76 122H90L90 128H77ZM22 122L26 128H44V123Z"/>
+	<path class="dr-b dr-o" d="M47 70H67L72 104H42Z"/>
+	<path class="dr-l" d="M44 94H70" style="stroke: var(--dr-gold, #c9a03c); stroke-width: 2.4"/>
+	<circle class="dr-s dr-o" cx="60" cy="56" r="10"/>
+	<path class="dr-s dr-o" d="M69 54L74 57L69 59"/>
+	<circle class="dr-k" cx="65" cy="54" r="1.3"/>
+	<path class="dr-r dr-o" d="M49 54C48 42 60 38 66 42C70 43 72 48 70 51C64 49 56 50 49 54Z"/>
+	<!-- arm and dividers -->
+	<path class="dr-l" d="M64 74L97 62" style="stroke-width: 8; stroke: var(--dr-ink, #3b2d1f)"/>
+	<path class="dr-l" d="M64 74L97 62" style="stroke-width: 5.4; stroke: var(--dr-blue, #35589e)"/>
+	<path class="dr-l" d="M100 56L131 84M100 56L120 106" style="stroke-width: 2.6"/>
+	<circle class="dr-m dr-o" cx="100" cy="56" r="3"/>
+	<circle class="dr-s dr-o" cx="98" cy="61" r="3.6"/>
+
+	</g>
+</svg>

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
+	<g class="dr-art">
+
+	<!-- ground -->
+	<path class="dr-l" d="M6 128C30 125 60 130 100 127C140 124 170 130 194 127"/>
+	<!-- wall, course by course -->
+	<rect class="dr-p dr-o" x="14.6" y="115.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-g dr-o" x="40.6" y="115.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-p dr-o" x="66.6" y="115.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-g dr-o" x="92.6" y="115.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-p dr-o" x="118.6" y="115.6" width="10.8" height="11.8" rx="3"/>
+	<rect class="dr-g dr-o" x="14.6" y="102.6" width="11.8" height="11.8" rx="3"/>
+	<rect class="dr-p dr-o" x="27.6" y="102.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-g dr-o" x="53.6" y="102.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-p dr-o" x="79.6" y="102.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-g dr-o" x="105.6" y="102.6" width="23.8" height="11.8" rx="3"/>
+	<rect class="dr-p dr-o" x="14.6" y="89.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-g dr-o" x="40.6" y="89.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-p dr-o" x="66.6" y="89.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-g dr-o" x="92.6" y="89.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-p dr-o" x="118.6" y="89.6" width="10.8" height="11.8" rx="3"/>
+	<rect class="dr-g dr-o" x="14.6" y="76.6" width="11.8" height="11.8" rx="3"/>
+	<rect class="dr-p dr-o" x="27.6" y="76.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-g dr-o" x="53.6" y="76.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-p dr-o" x="79.6" y="76.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-g dr-o" x="105.6" y="76.6" width="23.8" height="11.8" rx="3"/>
+	<rect class="dr-p dr-o" x="14.6" y="63.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-g dr-o" x="40.6" y="63.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-p dr-o" x="66.6" y="63.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-g dr-o" x="92.6" y="63.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-p dr-o" x="118.6" y="63.6" width="10.8" height="11.8" rx="3"/>
+	<rect class="dr-g dr-o" x="14.6" y="50.6" width="11.8" height="11.8" rx="3"/>
+	<rect class="dr-p dr-o" x="27.6" y="50.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-g dr-o" x="53.6" y="50.6" width="24.8" height="11.8" rx="3"/>
+	<rect class="dr-p dr-o" x="79.6" y="50.6" width="11.8" height="11.8" rx="3"/>
+	<!-- new stone -->
+	<rect class="dr-r dr-o" x="96" y="46" width="28" height="11.8" rx="3"/>
+	<!-- mason -->
+	<path class="dr-n dr-o" d="M150 100H158L157 124H149ZM164 100H172L174 124H166Z"/>
+	<path class="dr-k" d="M146 124H158V128H144ZM165 124H177L179 128H165Z"/>
+	<path class="dr-b dr-o" d="M148 66H168L174 102H142Z"/>
+	<path class="dr-l" d="M145 88H171" style="stroke: var(--dr-gold, #c9a03c); stroke-width: 2.4"/>
+	<circle class="dr-s dr-o" cx="158" cy="52" r="10"/>
+	<path class="dr-s dr-o" d="M149 50L144 53L149 55"/>
+	<circle class="dr-k" cx="153" cy="50" r="1.3"/>
+	<path class="dr-n dr-o" d="M148 48C147 36 158 32 166 36C168 40 168 44 167 46C160 43 154 44 148 48Z"/>
+	<path class="dr-l" d="M150 70L134 58" style="stroke-width: 8; stroke: var(--dr-ink, #3b2d1f)"/>
+	<path class="dr-l" d="M150 70L134 58" style="stroke-width: 5.4; stroke: var(--dr-blue, #35589e)"/>
+	<circle class="dr-s dr-o" cx="132" cy="56" r="3.4"/>
+	<path class="dr-m dr-o" d="M125 45L132 48L131 60L124 57Z"/>
+
+	</g>
+</svg>

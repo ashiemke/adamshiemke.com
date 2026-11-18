@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 150">
+	<g class="dr-art">
+
+	<!-- sun -->
+	<circle class="dr-g dr-o" cx="132" cy="26" r="8"/>
+	<path class="dr-l" d="M132 12V8M132 40V44M118 26H114M146 26H150M122 16L119 13M142 16L145 13M122 36L119 39M142 36L145 39"/>
+	<!-- ground -->
+	<path class="dr-l" d="M6 136C40 133 90 138 154 134"/>
+	<path class="dr-v dr-o" d="M12 135C13 130 15 128 17 126C17 130 18 133 20 135Z"/>
+	<path class="dr-v dr-o" d="M140 135C141 130 143 128 146 126C145 130 146 133 148 135Z"/>
+	<!-- mountain -->
+	<path class="dr-n dr-o" d="M14 136L50 84L62 66L72 52L80 28L92 46L102 60L112 74L128 100L146 136Z"/>
+	<path class="dr-l" d="M62 66L58 90M102 60L110 100M92 46L96 70"/>
+	<path class="dr-p dr-o" d="M80 28L72 52L77 48L82 56L88 46L92 46Z"/>
+	<!-- pennant -->
+	<path class="dr-l" d="M80 28V8"/>
+	<path class="dr-r dr-o" d="M80 8L98 12L80 18Z"/>
+	<!-- trail -->
+	<path class="dr-t" d="M64 132L116 118L44 104L106 90L60 78L88 64L80 54"/>
+	<g transform="translate(10 26)">
+	<path class="dr-l" d="M80 84L73 92L68 98" style="stroke-width: 5.9; stroke: var(--dr-ink, #3b2d1f); stroke-linejoin: round"/>
+	<path class="dr-l" d="M80 84L73 92L68 98" style="stroke-width: 3.4; stroke: var(--dr-blue); stroke-linejoin: round"/>
+	<path class="dr-l" d="M80 84L88 87L90 95" style="stroke-width: 5.9; stroke: var(--dr-ink, #3b2d1f); stroke-linejoin: round"/>
+	<path class="dr-l" d="M80 84L88 87L90 95" style="stroke-width: 3.4; stroke: var(--dr-blue); stroke-linejoin: round"/>
+	<path class="dr-k dr-o" d="M63 95L69 98L64 101Z"/>
+	<path class="dr-k dr-o" d="M88 94L96 93L96 97L88 98Z"/>
+	<path class="dr-g dr-o" d="M75 70L85 69L87 85L76 86Z"/>
+	<path class="dr-l" d="M76 72L69 76L68 69" style="stroke-width: 5.1; stroke: var(--dr-ink, #3b2d1f); stroke-linejoin: round"/>
+	<path class="dr-l" d="M76 72L69 76L68 69" style="stroke-width: 2.6; stroke: var(--dr-skin); stroke-linejoin: round"/>
+	<circle class="dr-s dr-o" cx="82" cy="62" r="5.5"/>
+	<path class="dr-s dr-o" d="M87 61L90 63L87 64"/>
+	<circle class="dr-k" cx="85" cy="61" r="1"/>
+	<path class="dr-r dr-o" d="M76.5 61C76 54 87 52 88 59C84 58 80 58 76.5 61Z"/>
+	<path class="dr-l" d="M84 72L91 74L95 67" style="stroke-width: 5.1; stroke: var(--dr-ink, #3b2d1f); stroke-linejoin: round"/>
+	<path class="dr-l" d="M84 72L91 74L95 67" style="stroke-width: 2.6; stroke: var(--dr-skin); stroke-linejoin: round"/>
+
+	</g>
+	</g>
+</svg>

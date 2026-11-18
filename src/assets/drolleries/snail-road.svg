@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 130">
+	<g class="dr-art">
+
+	<!-- ground -->
+	<path class="dr-l" d="M6 118C40 115 80 120 120 117C150 115 180 119 194 117"/>
+	<path class="dr-v dr-o" d="M14 117C15 111 17 109 19 106C19 111 20 114 22 117Z"/>
+	<path class="dr-v dr-o" d="M170 117C171 112 173 110 176 108C175 112 176 115 178 117Z"/>
+	<!-- the flag, close by -->
+	<path class="dr-l" d="M100 116V84"/>
+	<path class="dr-r dr-o" d="M100 84L114 89L100 95Z"/>
+	<!-- the road: wildly looping -->
+	<path class="dr-t" d="M84 110C150 114 182 100 180 70C178 40 142 30 120 42C96 54 70 24 40 28C12 32 12 62 32 66C52 70 58 50 80 54C106 58 122 72 114 88C108 98 100 94 100 110"/>
+	<!-- snail -->
+	<path class="dr-p dr-o" d="M30 116C30 111 36 110 42 111L58 111C65 110 67 104 69 98C71 92 77 93 77 99C76 107 73 114 66 116Z"/>
+	<path class="dr-l" d="M73 95L75 83M76 96L83 85"/>
+	<circle class="dr-k" cx="75" cy="82" r="1.6"/>
+	<circle class="dr-k" cx="83.5" cy="84" r="1.6"/>
+	<circle class="dr-g dr-o" cx="46" cy="100" r="11.5"/>
+	<path class="dr-l" d="M45.5 100A1.5 1.5 0 0 1 48.5 100A3 3 0 0 1 42.5 100A4.5 4.5 0 0 1 51.5 100A6 6 0 0 1 39.5 100A7.5 7.5 0 0 1 54.5 100"/>
+
+	</g>
+</svg>

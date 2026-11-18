@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 110">
+	<g class="dr-art">
+
+	<!-- ground -->
+	<path class="dr-l" d="M6 99C40 96 80 101 120 98C160 95 200 100 234 97"/>
+	<!-- mushrooms -->
+	<g transform="translate(-4 0)">
+	<path class="dr-g dr-o" d="M20 98C21 90 19 84 11 77C16 72 32 72 37 77C29 84 27 90 28 98Z"/>
+	<path class="dr-l" d="M17 79C22 82 26 82 31 79"/>
+	<path class="dr-g dr-o" d="M38 98C39 92 37 88 31 83C35 80 46 80 50 83C45 88 44 92 45 98Z"/>
+	<path class="dr-p dr-o" d="M55 98C54 90 55 86 56 82H64C65 86 66 90 65 98Z"/>
+	<path class="dr-n dr-o" d="M49 84C49 72 71 72 71 84Z"/>
+	</g>
+	<!-- chicken one -->
+	<g transform="translate(86 0)">
+	<path class="dr-l" d="M0 88V98M7 88V98M-3 98H3M4 98H10"/>
+	<path class="dr-n dr-o" d="M-11 72L-22 62L-18 70L-23 69L-13 80Z"/>
+	<path class="dr-p dr-o" d="M7 73C15 72 19 80 17 90H11C11 85 8 83 4 83Z"/>
+	<ellipse class="dr-p dr-o" cx="1" cy="79" rx="13" ry="10"/>
+	<path class="dr-l" d="M-4 78C0 84 6 84 9 79"/>
+	<circle class="dr-p dr-o" cx="15" cy="91" r="4.2"/>
+	<path class="dr-g dr-o" d="M18.5 90L24 95L17 94.5Z"/>
+	<path class="dr-r dr-o" d="M11 88.5C11 84 16 84 17 87C14 87 13 88 13 90Z"/>
+	<circle class="dr-k" cx="15" cy="90" r="1.1"/>
+	</g>
+	<!-- chicken two, facing back -->
+	<g transform="translate(146 0) scale(-1 1)">
+	<path class="dr-l" d="M0 88V98M7 88V98M-3 98H3M4 98H10"/>
+	<path class="dr-n dr-o" d="M-11 72L-22 62L-18 70L-23 69L-13 80Z"/>
+	<path class="dr-n dr-o" d="M7 73C15 72 19 80 17 90H11C11 85 8 83 4 83Z"/>
+	<ellipse class="dr-n dr-o" cx="1" cy="79" rx="13" ry="10"/>
+	<path class="dr-l" d="M-4 78C0 84 6 84 9 79"/>
+	<circle class="dr-n dr-o" cx="15" cy="91" r="4.2"/>
+	<path class="dr-g dr-o" d="M18.5 90L24 95L17 94.5Z"/>
+	<path class="dr-r dr-o" d="M11 88.5C11 84 16 84 17 87C14 87 13 88 13 90Z"/>
+	<circle class="dr-k" cx="15" cy="90" r="1.1"/>
+	</g>
+	<!-- old dog, dozing -->
+	<g transform="translate(4 0)">
+	<path class="dr-l" d="M231 92C236 90 236 82 232 80" style="stroke-width: 4.8; stroke: var(--dr-ink, #3b2d1f)"/>
+	<path class="dr-l" d="M231 92C236 90 236 82 232 80" style="stroke-width: 2.4; stroke: var(--dr-gold, #c9a03c)"/>
+	<path class="dr-g dr-o" d="M184 99C182 84 190 76 206 75C224 74 233 84 231 99Z"/>
+	<circle class="dr-g dr-o" cx="217" cy="90" r="8"/>
+	<path class="dr-n dr-o" d="M196 76L198 61L206 74Z"/>
+	<circle class="dr-g dr-o" cx="188" cy="86" r="11"/>
+	<ellipse class="dr-n dr-o" cx="177" cy="90" rx="7" ry="5"/>
+	<circle class="dr-k" cx="171.5" cy="89" r="2.2"/>
+	<path class="dr-l" d="M185 83Q188 86 191 83"/>
+	<ellipse class="dr-g dr-o" cx="177" cy="97" rx="10" ry="3.6"/>
+
+	</g>
+	</g>
+</svg>

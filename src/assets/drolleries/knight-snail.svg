@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 150">
+	<g class="dr-art">
+
+	<!-- ground -->
+	<path class="dr-l" d="M6 128C30 125 50 130 80 127C110 124 140 130 214 126"/>
+	<path class="dr-v dr-o" d="M14 127C15 121 17 119 19 116C19 121 20 124 22 127Z"/>
+	<path class="dr-v dr-o" d="M86 127C87 122 88 120 91 118C90 122 91 125 93 127Z"/>
+	<path class="dr-v dr-o" d="M200 126C201 121 203 119 205 117C204 121 205 124 207 126Z"/>
+	<!-- distant castle -->
+	<path class="dr-p dr-o" d="M178 96V58H181V54H185V58H188V54H192V58H195V54H199V58H202V96Z"/>
+	<path class="dr-r dr-o" d="M176 58L190 33L204 58Z"/>
+	<path class="dr-l" d="M190 33V22"/>
+	<path class="dr-b dr-o" d="M190 22L200 25L190 28Z"/>
+	<path class="dr-k" d="M186 96V86C186 82 194 82 194 86V96Z"/>
+	<path class="dr-l" d="M183 68H186M194 68H197"/>
+	<!-- the snail's chosen road -->
+	<path class="dr-t" d="M150 120C168 124 176 116 164 110C150 104 146 94 160 92C172 90 166 80 176 84C182 86 186 92 188 97"/>
+	<!-- snail -->
+	<path class="dr-p dr-o" d="M104 124C104 119 110 118 116 119L132 119C139 118 141 112 143 106C145 100 151 101 151 107C150 115 147 122 140 124Z"/>
+	<path class="dr-l" d="M147 103L149 91M150 104L157 93"/>
+	<circle class="dr-k" cx="149" cy="90.5" r="1.6"/>
+	<circle class="dr-k" cx="157.5" cy="92.5" r="1.6"/>
+	<circle class="dr-g dr-o" cx="120" cy="108" r="11.5"/>
+	<path class="dr-l" d="M119.5 108A1.5 1.5 0 0 1 122.5 108A3 3 0 0 1 116.5 108A4.5 4.5 0 0 1 125.5 108A6 6 0 0 1 113.5 108A7.5 7.5 0 0 1 128.5 108"/>
+	<!-- knight -->
+	<path class="dr-m dr-o" d="M36 100H42L41 124H35ZM53 100H59L62 124H56Z"/>
+	<path class="dr-k" d="M32 124H43V128H30ZM55 124H65L67 128H55Z"/>
+	<path class="dr-r dr-o" d="M37 60H59L65 101H31Z"/>
+	<path class="dr-l" d="M33 82H62" style="stroke: var(--dr-gold, #c9a03c); stroke-width: 2.4"/>
+	<path class="dr-m dr-o" d="M39 38H57L58 59H38Z"/>
+	<path class="dr-l" d="M45 47H58M48 38V59"/>
+	<path class="dr-r dr-o" d="M43 38C43 31 49 27 53 30C50 31 49 34 50 38Z"/>
+	<path class="dr-l" d="M58 63L78 52" style="stroke-width: 6; stroke: var(--dr-ink, #3b2d1f)"/>
+	<path class="dr-l" d="M58 63L78 52" style="stroke-width: 3.6; stroke: var(--dr-steel, #d3cec2)"/>
+	<path class="dr-p dr-o" d="M80 52L108 30L110 32.5L83 55Z"/>
+	<path class="dr-l" d="M75 48L86 58" style="stroke-width: 2.4"/>
+	<circle class="dr-g dr-o" cx="76.5" cy="56.5" r="2.4"/>
+	<path class="dr-b dr-o" d="M25 63H46V77C46 87 35.5 94 35.5 94C35.5 94 25 87 25 77Z"/>
+	<path class="dr-l" d="M28 81L35.5 73L43 81" style="stroke: var(--dr-gold, #c9a03c); stroke-width: 3"/>
+	<!-- banderole -->
+	<path class="dr-p dr-o" d="M62 18C80 14 116 22 142 15L145 25C120 32 82 24 65 28Z"/>
+	<path class="dr-p dr-o" d="M62 18L57 21L65 28Z"/>
+	<path class="dr-p dr-o" d="M142 15L149 17L145 25Z"/>
+
+	</g>
+	<text class="dr-text" x="71" y="25" transform="rotate(-1.5 104 21)">thither, by any road</text>
+</svg>

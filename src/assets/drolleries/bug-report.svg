@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
+	<g class="dr-art">
+
+	<path class="dr-l" d="M4 60C40 57 90 62 146 58"/>
+	<!-- legs -->
+	<path class="dr-l" d="M44 46L36 58M54 48L52 60M64 47L68 59M44 42L33 46M60 40L70 34"/>
+	<!-- beetle -->
+	<ellipse class="dr-r dr-o" cx="52" cy="40" rx="20" ry="13"/>
+	<path class="dr-l" d="M52 27V53"/>
+	<circle class="dr-k" cx="44" cy="35" r="2.6"/>
+	<circle class="dr-k" cx="60" cy="35" r="2.6"/>
+	<circle class="dr-k" cx="45" cy="46" r="2.2"/>
+	<circle class="dr-k" cx="59" cy="46" r="2.2"/>
+	<path class="dr-k dr-o" d="M71 34C77 32 81 36 81 40C81 44 77 47 72 46Z"/>
+	<path class="dr-l" d="M79 35C83 28 88 26 92 27M80 37C86 33 91 33 95 35"/>
+	<!-- the report -->
+	<path class="dr-p dr-o" d="M84 44H138V54H84Z"/>
+	<path class="dr-p dr-o" d="M84 41C80 41 80 57 84 57C88 57 88 41 84 41Z"/>
+	<path class="dr-p dr-o" d="M138 41C134 41 134 57 138 57C142 57 142 41 138 41Z"/>
+
+	</g>
+	<text class="dr-text" x="92" y="52" style="font-size: 7.5px">steps to repro</text>
+</svg>

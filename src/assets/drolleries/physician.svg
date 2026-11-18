@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 170 150">
+	<g class="dr-art">
+
+	<path class="dr-l" d="M6 133C40 130 80 135 164 131"/>
+	<!-- physician -->
+	<path class="dr-b dr-o" d="M49 60C42 74 37 104 33 133H86C82 104 77 74 71 60Z"/>
+	<path class="dr-l" d="M52 90C50 104 49 118 49 132M66 92C68 106 70 120 71 132"/>
+	<path class="dr-r dr-o" d="M47 62C52 56 68 56 73 62L70 70C64 67 56 67 50 70Z"/>
+	<circle class="dr-s dr-o" cx="60" cy="46" r="10.5"/>
+	<path class="dr-s dr-o" d="M69 44L74 47L69 49"/>
+	<circle class="dr-k" cx="65" cy="44" r="1.3"/>
+	<path class="dr-p dr-o" d="M54 53C55 62 60 66 63 66C63 61 64 57 66 54Z"/>
+	<path class="dr-r dr-o" d="M48.5 44C47 31 73 29 71.5 43C66 40 55 40 48.5 44Z"/>
+	<path class="dr-l" d="M70 66L95 46" style="stroke-width: 8; stroke: var(--dr-ink, #3b2d1f)"/>
+	<path class="dr-l" d="M70 66L95 46" style="stroke-width: 5.4; stroke: var(--dr-blue, #35589e)"/>
+	<circle class="dr-s dr-o" cx="97" cy="44" r="3.2"/>
+	<!-- urine flask, held to the light -->
+	<path class="dr-p dr-o" d="M101 13H109V22C116 25 119 31 118 37C117 45 111 49 105 49C99 49 93 45 92 37C91 31 94 25 101 22Z"/>
+	<path class="dr-g" d="M93.5 37C94 44 99 47.5 105 47.5C111 47.5 116 44 116.5 37Z"/>
+	<path class="dr-l" d="M99 13H111"/>
+	<path class="dr-l" d="M66 44C80 40 88 37 95 35" style="stroke-dasharray: 0.5 3.5; stroke-width: 0.9"/>
+	<!-- the machinery he has not reached for yet -->
+	<circle cx="125" cy="119" r="11" style="fill: none; stroke: var(--dr-ink, #3b2d1f); stroke-width: 4.5; stroke-dasharray: 3 2.75"/>
+	<circle class="dr-g dr-o" cx="125" cy="119" r="9"/>
+	<circle class="dr-p dr-o" cx="125" cy="119" r="2.6"/>
+	<circle cx="145" cy="125" r="7.5" style="fill: none; stroke: var(--dr-ink, #3b2d1f); stroke-width: 4; stroke-dasharray: 2.6 2.3"/>
+	<circle class="dr-g dr-o" cx="145" cy="125" r="6"/>
+	<circle class="dr-p dr-o" cx="145" cy="125" r="1.8"/>
+
+	</g>
+</svg>

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 120 24" width="120" height="24">
+	<defs>
+		<g id="half">
+			<path fill="none" stroke="#6b7f45" stroke-width="1.2" stroke-linecap="round" d="M55 12C48 12 45 8 39 8.5C33 9 31 14 25 13.5C21 13 19 10 21 8.5C23 7.5 24.5 9.5 23 10.5"/>
+			<path fill="#6b7f45" d="M46 10C45 5.5 41 3 36.5 3.2C38 6.8 41.5 9.6 46 10Z"/>
+			<path fill="#6b7f45" d="M34 12.2C33.5 16.5 30 19.5 25.5 20C26.5 16.2 29.5 12.8 34 12.2Z"/>
+			<circle fill="#b5452b" cx="50" cy="15.6" r="1.5"/>
+		</g>
+	</defs>
+	<use href="#half" xlink:href="#half"/>
+	<use href="#half" xlink:href="#half" transform="matrix(-1 0 0 1 120 0)"/>
+	<g fill="#c39a3a">
+		<circle cx="60" cy="9.2" r="2.6"/>
+		<circle cx="60" cy="14.8" r="2.6"/>
+		<circle cx="57.2" cy="12" r="2.6"/>
+		<circle cx="62.8" cy="12" r="2.6"/>
+	</g>
+</svg>

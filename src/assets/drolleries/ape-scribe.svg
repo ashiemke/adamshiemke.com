@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
+	<g class="dr-art">
+
+	<!-- ground -->
+	<path class="dr-l" d="M6 128C30 125 60 130 100 127C140 124 170 130 194 127"/>
+	<path class="dr-v dr-o" d="M10 127C11 122 13 120 15 118C15 122 16 125 18 127Z"/>
+	<path class="dr-v dr-o" d="M120 128C121 123 122 121 125 119C124 123 125 126 127 128Z"/>
+	<!-- exemplar book on a stool -->
+	<path class="dr-l" d="M168 112V128M188 112V128" style="stroke-width: 3"/>
+	<path class="dr-n dr-o" d="M162 108H194V113H162Z"/>
+	<path class="dr-p dr-o" d="M164 107C171 98 177 99 178 103C179 99 186 98 192 107Z"/>
+	<path class="dr-l" d="M178 103V107M168 104C171 102 174 102 176 104M181 104C184 102 187 102 189 104"/>
+	<!-- ape in habit -->
+	<path class="dr-l" d="M44 124C34 124 30 116 34 110C37 106 41 109 39 113" style="stroke-width: 5.5; stroke: var(--dr-ink, #3b2d1f)"/>
+	<path class="dr-l" d="M44 124C34 124 30 116 34 110C37 106 41 109 39 113" style="stroke-width: 3; stroke: var(--dr-brown, #7a5230)"/>
+	<path class="dr-p dr-o" d="M42 126C42 102 47 82 55 71H75C83 82 87 106 89 126Z"/>
+	<path class="dr-l" d="M47 96H86"/>
+	<path class="dr-l" d="M62 96C60 106 60 114 62 120M66 96C68 106 68 114 66 120"/>
+	<path class="dr-p dr-o" d="M52 70C50 52 56 44 68 44C60 50 60 58 62 70Z"/>
+	<circle class="dr-n dr-o" cx="67" cy="56" r="11"/>
+	<circle class="dr-s dr-o" cx="58" cy="57" r="3"/>
+	<path class="dr-s dr-o" d="M70 53C78 52 83 57 81 62C79 67 72 66 70 65Z"/>
+	<circle class="dr-k" cx="71" cy="54" r="1.4"/>
+	<path class="dr-l" d="M80 59L77 61" style="stroke-width: 0.9"/>
+	<path class="dr-p dr-o" d="M54 56C53 45 64 41 72 46C68 46 62 48 60 56Z"/>
+	<!-- writing arm and quill -->
+	<path class="dr-l" d="M74 76L104 86" style="stroke-width: 8; stroke: var(--dr-ink, #3b2d1f)"/>
+	<path class="dr-l" d="M74 76L104 86" style="stroke-width: 5.4; stroke: var(--dr-paper, #f4ead5)"/>
+	<circle class="dr-n dr-o" cx="107" cy="87" r="3.6"/>
+	<path class="dr-l" d="M106 89L110 77"/>
+	<path class="dr-p dr-o" d="M110 77C108 68 114 62 124 60C124 68 120 74 112 78Z"/>
+	<path class="dr-l" d="M111 76L122 62"/>
+	<!-- slanted desk -->
+	<path class="dr-n dr-o" d="M94 106H99V128H94ZM142 98H147V128H142Z"/>
+	<path class="dr-n dr-o" d="M90 100L148 80L152 87L94 107Z"/>
+	<path class="dr-p dr-o" d="M98 99L114 93L117 98L101 104Z"/>
+	<path class="dr-p dr-o" d="M114 93L130 88L133 93L117 98Z"/>
+	<path class="dr-l" d="M114 93L117 98M104 99L112 96M120 94L128 92"/>
+	<!-- inkpot -->
+	<path class="dr-k dr-o" d="M136 85L137 76H145L146 83Z"/>
+	<path class="dr-l" d="M138 76H144"/>
+
+	</g>
+</svg>

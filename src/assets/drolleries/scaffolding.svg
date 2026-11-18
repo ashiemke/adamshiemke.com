@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 140">
+	<g class="dr-art">
+
+	<path class="dr-l" d="M6 128C40 125 80 130 120 127C150 125 175 129 194 127"/>
+	<path class="dr-v dr-o" d="M12 127C13 122 15 120 17 117C17 122 18 125 20 127Z"/>
+	<!-- tower -->
+	<path class="dr-p dr-o" d="M32 128V56H92V128Z"/>
+	<path class="dr-p dr-o" d="M28 56H96V62H28Z"/>
+	<path class="dr-r dr-o" d="M30 56L62 14L94 56Z"/>
+	<path class="dr-l" d="M62 14V6"/>
+	<path class="dr-g dr-o" d="M62 6L70 8L62 11Z"/>
+	<path class="dr-l" d="M32 78H92M32 100H92M48 62V78M76 78V100M48 100V128M62 56V78" style="stroke-width: 0.9"/>
+	<path class="dr-k" d="M54 128V114C54 108 70 108 70 114V128Z"/>
+	<path class="dr-k" d="M56 84V76C56 72 68 72 68 76V84Z"/>
+	<!-- scaffolding poles, half taken down -->
+	<path class="dr-n dr-o" d="M104 128V70H108V128ZM132 128V92H136V128Z"/>
+	<path class="dr-n dr-o" d="M96 118H140V122H96Z"/>
+	<path class="dr-n dr-o" d="M96 98H116V102H96Z"/>
+	<path class="dr-l" d="M108 118L132 98M108 98L104 118" style="stroke: var(--dr-brown, #8a5a2b); stroke-width: 1.6"/>
+	<path class="dr-l" d="M104 70L92 70" style="stroke-width: 1.6"/>
+	<!-- mason carrying a plank -->
+	<path class="dr-n dr-o" d="M160 100H166L166 126H160ZM172 100H178L179 126H173Z"/>
+	<path class="dr-k" d="M157 126H168V129H156ZM172 126H182V129H172Z"/>
+	<path class="dr-g dr-o" d="M158 70H180L182 101H156Z"/>
+	<circle class="dr-s dr-o" cx="170" cy="58" r="9"/>
+	<path class="dr-s dr-o" d="M178 56L182 59L178 61"/>
+	<circle class="dr-k" cx="175" cy="56" r="1.2"/>
+	<path class="dr-r dr-o" d="M161 54C160 44 180 44 179 54C174 51 166 51 161 54Z"/>
+	<path class="dr-n dr-o" d="M124 94L192 72L194 78L126 100Z"/>
+	<path class="dr-l" d="M164 76L178 86" style="stroke-width: 6.5; stroke: var(--dr-ink, #3b2d1f)"/>
+	<path class="dr-l" d="M164 76L178 86" style="stroke-width: 4; stroke: var(--dr-gold, #c9a03c)"/>
+	<circle class="dr-s dr-o" cx="179" cy="82" r="2.8"/>
+	</g>
+</svg>

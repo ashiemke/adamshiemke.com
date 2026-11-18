@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 130">
+	<g class="dr-art">
+
+	<!-- ground -->
+	<path class="dr-l" d="M6 122C40 119 80 124 120 121C150 119 175 123 194 121"/>
+	<path class="dr-v dr-o" d="M150 121C151 116 153 114 155 111C155 116 156 119 158 121Z"/>
+	<!-- tumbled books and scrolls -->
+	<path class="dr-b dr-o" d="M8 121V110H44V121Z"/>
+	<path class="dr-l" d="M12 113H40"/>
+	<path class="dr-r dr-o" d="M13 110L15 100L47 103L44 110Z"/>
+	<path class="dr-g dr-o" d="M24 102L26 93L38 95L38 102Z"/>
+	<path class="dr-p dr-o" d="M47 121C43 121 43 111 47 111L60 111C64 111 64 121 60 121Z"/>
+	<path class="dr-l" d="M47 113C45 114 45 118 47 119"/>
+	<path class="dr-p dr-o" d="M40 121L50 116L52 121Z"/>
+	<path class="dr-g dr-o" d="M14 100L30 90L34 96L18 106Z"/>
+	<!-- owl -->
+	<path class="dr-g dr-o" d="M66 120L63 117H74L72 120ZM82 120L79 117H90L88 120Z"/>
+	<ellipse class="dr-n dr-o" cx="77" cy="92" rx="16" ry="26"/>
+	<path class="dr-p dr-o" d="M69 88C71 84 83 84 85 88C86 98 82 110 77 112C72 110 68 98 69 88Z"/>
+	<path class="dr-l" d="M72 94L76 96L80 94M73 102L77 104L81 102"/>
+	<circle class="dr-p dr-o" cx="77" cy="64" r="13"/>
+	<circle class="dr-g dr-o" cx="73" cy="63" r="4.5"/>
+	<circle class="dr-g dr-o" cx="83" cy="63" r="4.5"/>
+	<circle class="dr-k" cx="74" cy="63" r="1.8"/>
+	<circle class="dr-k" cx="84" cy="63" r="1.8"/>
+	<path class="dr-g dr-o" d="M77 66L80 72L74 72Z"/>
+	<!-- scholar's cap -->
+	<path class="dr-b dr-o" d="M65 53H89V57H65Z"/>
+	<path class="dr-b dr-o" d="M62 53L77 46L92 53L77 58Z"/>
+	<path class="dr-l" d="M92 53V63" style="stroke: var(--dr-gold, #c9a03c); stroke-width: 1.6"/>
+	<!-- pointing wing and stick -->
+	<path class="dr-l" d="M88 86L111 77" style="stroke-width: 1.8"/>
+	<path class="dr-n dr-o" d="M86 80C94 80 94 90 86 92C82 90 82 82 86 80Z"/>
+	<!-- lectern -->
+	<path class="dr-n dr-o" d="M112 120V92H126V120ZM104 120H134V116H104Z"/>
+	<path class="dr-n dr-o" d="M100 92H138L141 98H97Z"/>
+	<!-- open book -->
+	<path class="dr-r dr-o" d="M98 92L100 66L119 69L138 66L140 92L119 94Z"/>
+	<path class="dr-p dr-o" d="M101 90L102 69L119 72V92ZM119 72L136 69L137 90L119 92Z"/>
+	<path class="dr-l" d="M105 82L116 84M122 78L133 76M122 84L133 82M122 70L133 68"/>
+	<path class="dr-l" d="M104 75L117 78" style="stroke: var(--dr-red, #b3382c); stroke-width: 2.6"/>
+	<!-- rabbit student -->
+	<ellipse class="dr-p dr-o" cx="171" cy="106" rx="12" ry="14"/>
+	<ellipse class="dr-p dr-o" cx="162" cy="118" rx="6" ry="3"/>
+	<ellipse class="dr-p dr-o" cx="177" cy="118" rx="6" ry="3"/>
+	<path class="dr-p dr-o" d="M161 74C158 58 164 56 166 60C168 66 168 72 168 76ZM170 74C170 58 177 56 177 62C177 68 175 72 174 76Z"/>
+	<circle class="dr-p dr-o" cx="167" cy="84" r="10"/>
+	<circle class="dr-k" cx="163" cy="82" r="1.5"/>
+	<circle class="dr-r" cx="157.500" cy="86" r="1.8"/>
+	<path class="dr-l" d="M160 98L154 104" style="stroke-width: 1.2"/>
+	</g>
+</svg>

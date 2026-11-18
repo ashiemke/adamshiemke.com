@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 190 140">
+	<g class="dr-art">
+
+	<!-- ground -->
+	<path class="dr-l" d="M6 126C40 123 80 128 120 125C150 123 170 127 184 125"/>
+	<path class="dr-v dr-o" d="M20 125C21 119 23 117 25 114C25 119 26 122 28 125Z"/>
+	<path class="dr-v dr-o" d="M150 125C151 120 153 118 156 116C155 120 156 123 158 125Z"/>
+	<!-- little tree -->
+	<path class="dr-n dr-o" d="M122 126C124 108 123 90 121 66L135 66C133 90 134 108 138 126Z"/>
+	<path class="dr-l" d="M128 100C130 94 130 90 129 84"/>
+	<circle class="dr-v dr-o" cx="116" cy="58" r="14"/>
+	<circle class="dr-v dr-o" cx="142" cy="56" r="15"/>
+	<circle class="dr-v dr-o" cx="129" cy="42" r="15"/>
+	<!-- legs, stretched along the ground -->
+	<path class="dr-m dr-o" d="M40 112H96V122H40Z"/>
+	<path class="dr-l" d="M70 112V122"/>
+	<path class="dr-k" d="M32 108H42V124H32Z"/>
+	<!-- body -->
+	<path class="dr-r dr-o" d="M86 76H112L118 120H82Z"/>
+	<path class="dr-l" d="M83 108H117" style="stroke: var(--dr-gold, #c9a03c); stroke-width: 2.4"/>
+	<!-- slumped head, helmet tipped over the eyes -->
+	<g transform="rotate(-18 98 72)">
+	<path class="dr-s dr-o" d="M88 56H108V72C108 76 90 76 88 70Z"/>
+	<path class="dr-s dr-o" d="M86 64L81 67L86 70"/>
+	<path class="dr-m dr-o" d="M86 62C84 44 106 40 110 56L111 62C100 66 92 66 86 62Z"/>
+	<path class="dr-l" d="M86 62C96 66 104 66 111 62M98 44V64"/>
+	<path class="dr-r dr-o" d="M92 43C94 36 101 35 104 38C101 39 100 41 100 44Z"/>
+	</g>
+	<!-- folded arm -->
+	<path class="dr-l" d="M88 82C96 96 108 92 113 86" style="stroke-width: 7; stroke: var(--dr-ink, #3b2d1f)"/>
+	<path class="dr-l" d="M88 82C96 96 108 92 113 86" style="stroke-width: 4.5; stroke: var(--dr-steel, #d3cec2)"/>
+	<!-- the note, pinned -->
+	<path class="dr-p dr-o" d="M92 82H108V99H92Z"/>
+	<path class="dr-l" d="M95 87H105M95 91H105M95 95H102"/>
+	<circle class="dr-r dr-o" cx="100" cy="83" r="2"/>
+	<!-- z z -->
+	<path class="dr-l" d="M66 52H74L66 62H74"/>
+	<path class="dr-l" d="M56 38H62L56 46H62"/>
+	<!-- banderole -->
+	<path class="dr-p dr-o" d="M14 8C34 4 62 12 88 6L91 18C66 24 38 16 17 20Z"/>
+	<path class="dr-p dr-o" d="M14 8L9 11L17 20Z"/>
+	<path class="dr-p dr-o" d="M88 6L95 8L91 18Z"/>
+
+	</g>
+	<text class="dr-text" x="22" y="17" transform="rotate(-1.5 52 13)">resume at step 4</text>
+</svg>
