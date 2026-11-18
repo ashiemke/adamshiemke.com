@@ -99,3 +99,16 @@ The steps below are a one-time setup.
 6. Once DNS resolves and GitHub has issued the certificate, which can take some time after the DNS change, go back to Settings → Pages and tick **Enforce HTTPS**.
 
 After this setup, every push to `main` deploys the site.
+
+### Mirror at ashiemke.github.io
+
+The same site is also served at https://ashiemke.github.io/, for readers whose network filters block or sandbox new domains. The mirror is a second repository, `ashiemke/ashiemke.github.io`, with Pages set to **GitHub Actions** and no custom domain. It holds the same commits and runs the same workflow. Its pages still name `https://adamshiemke.com` as the canonical address, so search engines treat it as a copy.
+
+The local `origin` remote has two push URLs, so `git push` updates both repositories:
+
+```bash
+git remote set-url --add --push origin git@github.com:ashiemke/adamshiemke.com.git
+git remote set-url --add --push origin git@github.com:ashiemke/ashiemke.github.io.git
+```
+
+On a fresh clone, run both commands once. A push that reaches only one repository leaves the two sites out of step.
