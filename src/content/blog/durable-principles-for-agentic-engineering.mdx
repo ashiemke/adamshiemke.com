@@ -11,6 +11,7 @@ import RefList from '../../components/RefList.astro';
 import Sidebar from '../../components/Sidebar.astro';
 import Example from '../../components/Example.astro';
 import PrincipleIndex from '../../components/PrincipleIndex.astro';
+import PrincipleLead from '../../components/PrincipleLead.astro';
 import Drollery from '../../components/Drollery.astro';
 
 Your engineering work increasingly includes designing the system that writes the code.
@@ -47,9 +48,11 @@ These are shared engineering problems. Better models can solve more and more gen
 
 ## 1. Delegate outcomes
 
+<PrincipleLead art="knight-snail">
+
 Give the agent a useful result to achieve, the constraints it must respect, and a way to find out whether it succeeded. Then let it choose how to get there.
 
-<Drollery art="knight-snail" />
+</PrincipleLead>
 
 If every handoff is “add this function,” you still have to assemble the workflow yourself. “Make this import handle duplicate records according to these rules, and demonstrate it against these examples” gives the agent an outcome it can pursue and check.
 
@@ -63,7 +66,11 @@ Your job is to make the outcome clear enough to pursue and observable enough to 
 
 ## 2. Make intent concrete
 
+<PrincipleLead art="intent-model">
+
 Writing down a requirement helps create the understanding you are trying to communicate. A requirement in your head is a loose cluster of associations that feels complete because you never have to traverse all of it at once. Writing forces an order, a choice between near-synonyms, and a clear answer to what every “it” means, all decisions the vague version let you defer. Like a compiler, an agent has none of the shared context a colleague would use to fill your gaps. Unlike a compiler, it won’t stop at a gap. It fills it with a plausible guess.
+
+</PrincipleLead>
 
 Some requirements are facts waiting to be discovered, others are choices nobody has made yet. Handle them differently.
 
@@ -79,9 +86,11 @@ You do not need to specify everything up front—specifying everything is equiva
 
 ## 3. Earn autonomy with evidence
 
+<PrincipleLead art="falcon-proof">
+
 Neither your confidence nor the agent's confidence establishes that the work succeeded. Give the agent a concrete way to verify the outcome and the tools to carry it out.
 
-<Drollery art="falcon-proof" />
+</PrincipleLead>
 
 Describe how to start the system, which data to use, what actions to take, what should happen, and where to inspect the result. Think of testing broadly: automated assertions, browser workflows, data reconciliation, visual comparisons, and recovery exercises can all challenge a claim.
 
@@ -114,7 +123,11 @@ Delegating execution does not delegate accountability. You own what ships, inclu
 
 ## 4. Don't be a meat proxy
 
+<PrincipleLead art="feedback-pipe">
+
 An agent cannot learn from an outcome it never sees. If you repeatedly copy errors, logs, screenshots, or ticket text between an agent and another system, you have found a missing connection.
+
+</PrincipleLead>
 
 Give the agent access to the evidence you would use: test output, a running application, relevant logs, a browser, the authoritative specification. Make the feedback usable. “Failed” is less helpful than the failing case, the observed result, and where to investigate.
 
@@ -126,9 +139,11 @@ Every paste is a clue. Follow the clues until your attention is being spent on d
 
 ## 5. Diagnose the failure before adding machinery
 
+<PrincipleLead art="physician">
+
 When an agent produces a bad result or takes a costly detour, inspect how it got there.
 
-<Drollery art="physician" />
+</PrincipleLead>
 
 Was the relevant information available? Could it find and use it? Was the request ambiguous? Did a tool fail? Did the check accept the wrong behavior? Did the task exceed what this model could reliably do?
 
@@ -154,7 +169,11 @@ You asked what the moon is made of. If the agent starts building a space shuttle
 
 ## 6. Make corrections accumulate
 
+<PrincipleLead art="beaver-repair">
+
 If a useful lesson lives only in a conversation, the next task can rediscover the same failure. A correction should improve the next attempt as well as the current one.
+
+</PrincipleLead>
 
 If an agent repeatedly crosses a module boundary, consider whether the dependency can be prevented or checked. If it misunderstands a business rule, add a clear example and a behavioral test. If it keeps running the wrong command, provide one reliable entry point.
 
@@ -168,7 +187,11 @@ This is how individual experience becomes a better development system. Your debu
 
 ## 7. Share the basis for judgment
 
+<PrincipleLead art="owl-authority">
+
 Access to more text does not settle which text matters.
+
+</PrincipleLead>
 
 Suppose a repository contains an approved design, an abandoned proposal, and an unfunded plan for next year. You know how to read them because you were in the meetings. An agent may see three equally polished documents. Mark their status, scope, and authority. Explain what settled the choice and what could reopen it. Do this in documents that independent sessions can pick up.
 
@@ -186,7 +209,11 @@ A useful map makes the next task easier to start. An instruction file that keeps
 
 ## 8. Capture decisions while the reasoning is still available
 
+<PrincipleLead art="reason-bird">
+
 Code preserves what was implemented. It often leaves out why the team chose it. Human memory and session history are unreliable substitutes for that missing explanation.
+
+</PrincipleLead>
 
 When a consequential decision is made, capture the choice, the reason, the important alternative, and the assumption that might cause you to revisit it. A few sentences may be enough. Identify who resolved it when ownership matters. See ADRs.
 
@@ -196,9 +223,13 @@ At a handoff, record the current state, what has been verified, what remains unc
 
 The purpose is to let the next engineer or agent start from established knowledge. Durable records reduce rediscovery and make it easier to challenge an old decision when its assumptions change.
 
-## 9. Use Cheap Development to Explore the Solution Space
+## 9. Use cheap development to explore the solution space
+
+<PrincipleLead art="trial-boats">
 
 Passing today's acceptance tests doesn’t tell us about the cost of the next change. Design around explicit expectations, then revise them as you learn. Prototypes and branches are easy to generate, so use them for discovery.
+
+</PrincipleLead>
 
 State the likely directions of change before choosing the structure. Will there be more input formats? Different rules for different clients? Much larger volumes? A replacement for an external service? Which of those expectations come from someone who knows the business?
 
@@ -210,9 +241,11 @@ Cheap implementation makes experiments more affordable. Experiments force your a
 
 ## 10. Make complexity earn its keep
 
+<PrincipleLead art="mechanical-hydra">
+
 Generating code creates future work: concepts to understand, behavior to verify, dependencies to maintain, and paths to retire. Faster production can outrun the team's capacity to understand what it owns.
 
-<Drollery art="mechanical-hydra" />
+</PrincipleLead>
 
 Ask explicitly for simplification. Can existing code express the behavior? Can an old path disappear? Does this abstraction isolate a real source of change? What requirement justifies the extra mechanism?
 
@@ -224,7 +257,11 @@ Use some of the capacity gained from generation to reduce what the team has to c
 
 ## 11. Retire the scaffolding
 
+<PrincipleLead art="scaffold-snail">
+
 Every extra prompt, review pass, hook, and orchestration step costs something. Record what problem it solves and how you will tell whether it is still needed.
+
+</PrincipleLead>
 
 Return to the common/special cause distinction. Access to the running system, evidence of success, project requirements, and decision history address recurring needs. An elaborate decomposition prompt may compensate for a particular model's difficulty sustaining a task.
 
@@ -238,9 +275,11 @@ The harness should get better as you learn. Sometimes better means smaller. Leav
 
 ## 12. Make work resumable
 
+<PrincipleLead art="sleeping-knight">
+
 Assume the next session will not remember this one. Context can be lost, compressed, or misunderstood. Leave enough behind that another agent—or another engineer—can pick up the work.
 
-<Drollery art="sleeping-knight" />
+</PrincipleLead>
 
 Move the plan into the repository early. It can start as a short checklist with the goal, constraints, open questions, and next steps. Update it as the work changes. An imperfect plan that stays current is more useful than a polished description of what you originally intended.
 

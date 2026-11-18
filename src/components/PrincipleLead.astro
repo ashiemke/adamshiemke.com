@@ -1,0 +1,14 @@
+---
+import Drollery from './Drollery.astro';
+
+interface Props {
+	art: string;
+}
+
+const { art } = Astro.props;
+---
+
+<div class="principle-lead">
+	<slot />
+	<Drollery art={art} />
+</div>

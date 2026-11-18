@@ -55,7 +55,9 @@ const items = headings
 	const sections = links
 		.map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1))))
 		.filter((el): el is HTMLElement => el !== null);
+	const list = links[0]?.closest('ol');
 	let ticking = false;
+	let previous = -1;
 	function updateCurrent() {
 		ticking = false;
 		const offset = window.innerHeight * 0.25;
@@ -63,10 +65,18 @@ const items = headings
 		sections.forEach((s, i) => {
 			if (s.getBoundingClientRect().top - offset <= 0) current = i;
 		});
-		links.forEach((a, i) => {
-			if (i === current) a.setAttribute('aria-current', 'true');
-			else a.removeAttribute('aria-current');
-		});
+		if (current === previous) return;
+		links[previous]?.removeAttribute('aria-current');
+		previous = current;
+
+		const active = links[current];
+		active?.setAttribute('aria-current', 'true');
+		if (active && list?.clientHeight) {
+			const link = active.getBoundingClientRect();
+			const panel = list.getBoundingClientRect();
+			if (link.top < panel.top) list.scrollTop += link.top - panel.top;
+			if (link.bottom > panel.bottom) list.scrollTop += link.bottom - panel.bottom;
+		}
 	}
 	if (links.length) {
 		window.addEventListener(
