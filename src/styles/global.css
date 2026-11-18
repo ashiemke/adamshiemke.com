@@ -49,8 +49,10 @@
 	color-scheme: light;
 }
 
+/* Dark tokens apply when the reader picks dark with the header switch (data-theme on <html>),
+   or when the system prefers dark and they haven't picked light. Keep the two blocks in sync. */
 @media (prefers-color-scheme: dark) {
-	:root {
+	:root:not([data-theme='light']) {
 		--bg: #1b1711;
 		--surface: #252017;
 		--text: #ebe2cf;
@@ -81,6 +83,38 @@
 		--dr-brown: #a7845a;
 		color-scheme: dark;
 	}
+}
+
+:root[data-theme='dark'] {
+	--bg: #1b1711;
+	--surface: #252017;
+	--text: #ebe2cf;
+	--text-2: #cfc4ad;
+	--muted: #a3967f;
+	--rule: #3c3428;
+	--accent: #e2805f;
+	--accent-soft: rgba(226, 128, 95, 0.5);
+	--accent-tint: rgba(226, 128, 95, 0.1);
+	--accent-tint-2: rgba(226, 128, 95, 0.28);
+	--lapis: #8fa9e6;
+	--lapis-deep: #24427f;
+	--gold: #d6b25c;
+	--gold-soft: #8a7340;
+	--gold-leaf: #ecd08a;
+	--mark: rgba(214, 178, 92, 0.2);
+	--pop-bg: #29231a;
+	--shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
+
+	--dr-ink: #cdbf9f;
+	--dr-paper: #3a3226;
+	--dr-steel: #7f7a6e;
+	--dr-skin: #c9a988;
+	--dr-red: #c9573a;
+	--dr-blue: #5a7cc4;
+	--dr-gold: #d6b25c;
+	--dr-green: #8aa565;
+	--dr-brown: #a7845a;
+	color-scheme: dark;
 }
 
 /* ---------- Base ---------- */
@@ -1364,9 +1398,58 @@ a[data-footnote-ref]:target {
 .dr-m { fill: var(--dr-steel); }
 .dr-k { fill: var(--dr-ink); }
 
+/* Banner lettering runs along each banner's curve (an SVG textPath) in a pen-made face. */
 .dr-text {
-	font-family: var(--font-serif);
-	font-style: italic;
+	font-family: var(--font-hand);
 	font-size: 9px;
 	fill: var(--dr-ink);
+	/* Thicken the letters to the drawings' pen weight, and give them a lighter version of the
+	   same wobble, so they look written with the pen that drew the banner. */
+	stroke: var(--dr-ink);
+	stroke-width: 0.45px;
+	stroke-linejoin: round;
+	paint-order: stroke fill;
+	filter: url('#dr-rough-text');
+}
+
+/* ---------- Light/dark switch ---------- */
+
+.theme-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 1.9rem;
+	height: 1.9rem;
+	margin: -0.35rem -0.35rem -0.35rem 0;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: none;
+	color: var(--muted);
+	cursor: pointer;
+	align-self: center;
+}
+
+.theme-toggle[hidden] {
+	display: none;
+}
+
+.theme-toggle:hover {
+	color: var(--accent);
+	background: var(--accent-tint);
+}
+
+.theme-toggle svg {
+	width: 1.1rem;
+	height: 1.1rem;
+}
+
+/* Show the moon in light mode (switch to dark) and the sun in dark mode. */
+.theme-toggle .icon-sun,
+:root[data-theme='dark'] .theme-toggle .icon-moon {
+	display: none;
+}
+
+:root[data-theme='dark'] .theme-toggle .icon-sun {
+	display: block;
 }

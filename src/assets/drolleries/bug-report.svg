@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 150 70">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 150 70">
 	<g class="dr-art">
 
 	<path class="dr-l" d="M4 60C40 57 90 62 146 58"/>
@@ -19,5 +19,6 @@
 	<path class="dr-p dr-o" d="M138 41C134 41 134 57 138 57C142 57 142 41 138 41Z"/>
 
 	</g>
-	<text class="dr-text" x="92" y="52" style="font-size: 7.5px">steps to repro</text>
+	<path id="dr-band-bug-report" d="M84 51.88C102 51.88 120 51.88 138 51.88" fill="none"/>
+	<text class="dr-text" text-anchor="middle" style="font-size: 7.6px"><textPath href="#dr-band-bug-report" xlink:href="#dr-band-bug-report" startOffset="50%">steps to repro</textPath></text>
 </svg>

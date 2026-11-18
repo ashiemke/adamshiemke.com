@@ -19,6 +19,19 @@ const fullTitle = title === SITE_TITLE ? title : `${title} · ${SITE_TITLE}`;
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <meta name="color-scheme" content="light dark" />
+<script is:inline>
+	// Apply the reader's saved theme (or the system one) before first paint, so there's no flash.
+	(() => {
+		let theme;
+		try {
+			theme = localStorage.getItem('theme');
+		} catch {}
+		if (theme !== 'light' && theme !== 'dark') {
+			theme = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		}
+		document.documentElement.dataset.theme = theme;
+	})();
+</script>
 <meta name="theme-color" content="#f4ecda" media="(prefers-color-scheme: light)" />
 <meta name="theme-color" content="#1b1711" media="(prefers-color-scheme: dark)" />
 <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -28,6 +41,7 @@ const fullTitle = title === SITE_TITLE ? title : `${title} · ${SITE_TITLE}`;
 
 <Font cssVariable="--font-serif" preload />
 <Font cssVariable="--font-label" preload />
+<Font cssVariable="--font-hand" />
 <Font cssVariable="--font-mono" />
 
 <link rel="canonical" href={canonicalURL} />

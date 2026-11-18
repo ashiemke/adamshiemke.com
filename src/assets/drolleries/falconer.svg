@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 210 140">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 210 140">
 	<g class="dr-art">
 
 	<!-- ground -->
@@ -41,5 +41,6 @@
 	<path class="dr-p dr-o" d="M80 14L87 16L83 24Z"/>
 
 	</g>
-	<text class="dr-text" x="38" y="24" transform="rotate(-1.5 52 20)">show me</text>
+	<path id="dr-band-falconer" d="M25.5 24.38C40 21.38 61 26.88 81.5 21.88" fill="none"/>
+	<text class="dr-text" text-anchor="middle" style="font-size: 9.5px; letter-spacing: 0.1em"><textPath href="#dr-band-falconer" xlink:href="#dr-band-falconer" startOffset="50%">show me</textPath></text>
 </svg>

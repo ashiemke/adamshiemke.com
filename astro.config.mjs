@@ -22,6 +22,8 @@ export default defineConfig({
 		expressiveCode({
 			themes: ['github-dark', 'github-light'],
 			useDarkModeMediaQuery: true,
+			// Follow the header's light/dark switch (data-theme on <html>).
+			themeCssSelector: (theme) => `[data-theme='${theme.type}']`,
 			styleOverrides: {
 				codeFontFamily: 'var(--font-mono)',
 				uiFontFamily: 'var(--font-label)',
@@ -49,6 +51,16 @@ export default defineConfig({
 			name: 'Alegreya SC',
 			cssVariable: '--font-label',
 			weights: [400, 500, 700],
+			styles: ['normal'],
+			subsets: ['latin'],
+			fallbacks: ['Georgia', 'serif'],
+		},
+		{
+			// Lettering on the drolleries' banners: a pen-made face from Chancery and Gothic hands.
+			provider: fontProviders.fontsource(),
+			name: 'Almendra',
+			cssVariable: '--font-hand',
+			weights: [400],
 			styles: ['normal'],
 			subsets: ['latin'],
 			fallbacks: ['Georgia', 'serif'],

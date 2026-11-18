@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 150">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 220 150">
 	<g class="dr-art">
 
 	<!-- ground -->
@@ -40,5 +40,6 @@
 	<path class="dr-p dr-o" d="M166 6L173 8L169 20Z"/>
 
 	</g>
-	<text class="dr-text" x="58" y="17.5" transform="rotate(-1.5 106 14)">yours, or devil’s advocate?</text>
+	<path id="dr-band-knight-snail-duel" d="M45.5 17.88C72 13.88 121 23.88 167.5 15.88" fill="none"/>
+	<text class="dr-text" text-anchor="middle" style="font-size: 9.6px"><textPath href="#dr-band-knight-snail-duel" xlink:href="#dr-band-knight-snail-duel" startOffset="50%">yours, or devil’s advocate?</textPath></text>
 </svg>

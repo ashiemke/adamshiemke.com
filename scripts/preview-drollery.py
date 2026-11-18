@@ -14,7 +14,7 @@ STYLE = """<style>
 .dr-r { fill: var(--dr-red); } .dr-b { fill: var(--dr-blue); } .dr-g { fill: var(--dr-gold); }
 .dr-v { fill: var(--dr-green); } .dr-s { fill: var(--dr-skin); } .dr-p { fill: var(--dr-paper); }
 .dr-m { fill: var(--dr-steel); } .dr-k { fill: var(--dr-ink); } .dr-n { fill: var(--dr-brown); }
-.dr-text { font-family: 'Alegreya', Georgia, serif; font-style: italic; font-size: 9px; fill: var(--dr-ink); }
+.dr-text { font-family: 'Almendra', Georgia, serif; font-size: 9px; fill: var(--dr-ink); stroke: var(--dr-ink); stroke-width: 0.45px; paint-order: stroke fill; }
 </style>
 <filter id="dr-rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7"/><feDisplacementMap in="SourceGraphic" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
 """

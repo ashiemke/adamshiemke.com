@@ -36,10 +36,22 @@ The three finished samples set the style. Match them closely:
   - `dr-l`: ink line, no fill (stems, limbs, folds, ground).
   - `dr-t`: dotted ink trail (paths, sight lines, motion).
   - Fills: `dr-r` vermilion, `dr-b` lapis blue, `dr-g` gold, `dr-v` green, `dr-n` brown (wood, fur, earth), `dr-s` skin, `dr-p` paper/white (undyed cloth, stone, pages, white fur), `dr-m` steel grey (armour, metal), `dr-k` solid ink (eyes, small dark details).
-  - `dr-text`: lettering on a banderole (scroll ribbon). It's italic, 9px. Keep the 9px size; 7.5px only if you must.
+  - `dr-text`: lettering on a banderole (scroll ribbon), set in Almendra at the drawings' pen weight. See "Lettering" below.
   - A thick limb in a colour, like the sample sword arm: draw two paths, an ink one at width N+2.5 under a coloured one at width N, using inline `style="stroke-width: N; stroke: var(--dr-blue, #35589e)"`. Inline styles may only use `var(--dr-ink|red|blue|gold|green|brown|skin|paper|steel, fallback)`.
 - Stroke widths: outlines come from the classes (1.3). Don't go below 0.9 for any line, and no details smaller than about 2 units.
 - Lettering: optional. At most one short banderole of 2–5 words, and only where words make the joke. Old-fashioned wording is welcome ("thither, by any road").
+
+## Lettering
+Words run along the banner's curve rather than sitting on a straight line. Draw the banner as a ribbon (top edge, then the bottom edge back), then add an invisible centre-line path and a `textPath`, outside the `dr-art` group:
+
+```svg
+	<path id="dr-band-NAME" d="M63.5 25.9C81 21.9 118 29.9 143.5 22.9" fill="none"/>
+	<text class="dr-text" text-anchor="middle" style="font-size: 8.2px"><textPath href="#dr-band-NAME" xlink:href="#dr-band-NAME" startOffset="50%">thither, by any road</textPath></text>
+```
+
+- The centre line is the average of the ribbon's top and bottom curves, moved down about 0.3 × the font size so the letters sit in the middle. Add `xmlns:xlink="http://www.w3.org/1999/xlink"` to the `<svg>` element.
+- Size the text so it fills about 85% of the banner's length, between 7.5 and 10px and no taller than the banner. For short words, add a little `letter-spacing` (up to 0.1em) instead of a larger size.
+- The id must be unique across all drawings (`dr-band-` plus the file name).
 - Comments in the SVG are fine and help: `<!-- knight -->`.
 
 ## Check your work

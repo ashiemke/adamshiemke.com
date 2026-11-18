@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 130">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 200 130">
 	<g class="dr-art">
 
 	<path class="dr-l" d="M6 122C40 119 90 124 130 121C160 119 180 123 194 121"/>
@@ -35,5 +35,6 @@
 	<path class="dr-p dr-o" d="M134 67L129 70L135 79Z"/>
 	<path class="dr-p dr-o" d="M162 66L167 69L163 77Z"/>
 	</g>
-	<text class="dr-text" x="141" y="75" transform="rotate(-3 148 72)">why</text>
+	<path id="dr-band-bird-book" d="M134.5 75.88C142.5 72.38 152.5 78.38 162.5 74.38" fill="none"/>
+	<text class="dr-text" text-anchor="middle" style="font-size: 10px; letter-spacing: 0.08em"><textPath href="#dr-band-bird-book" xlink:href="#dr-band-bird-book" startOffset="50%">why</textPath></text>
 </svg>
