@@ -48,3 +48,37 @@ const items = headings
 			</details>
 		))
 }
+
+<script>
+	// Highlight the current section in the contents rail.
+	const links = [...document.querySelectorAll<HTMLAnchorElement>('[data-toc-link]')];
+	const sections = links
+		.map((a) => document.getElementById(decodeURIComponent(a.hash.slice(1))))
+		.filter((el): el is HTMLElement => el !== null);
+	let ticking = false;
+	function updateCurrent() {
+		ticking = false;
+		const offset = window.innerHeight * 0.25;
+		let current = -1;
+		sections.forEach((s, i) => {
+			if (s.getBoundingClientRect().top - offset <= 0) current = i;
+		});
+		links.forEach((a, i) => {
+			if (i === current) a.setAttribute('aria-current', 'true');
+			else a.removeAttribute('aria-current');
+		});
+	}
+	if (links.length) {
+		window.addEventListener(
+			'scroll',
+			() => {
+				if (!ticking) {
+					ticking = true;
+					requestAnimationFrame(updateCurrent);
+				}
+			},
+			{ passive: true },
+		);
+		updateCurrent();
+	}
+</script>

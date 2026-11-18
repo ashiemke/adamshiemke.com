@@ -1,0 +1,13 @@
+---
+import { Content, frontmatter, getHeadings } from '../content/readme.mdx';
+import Page from '../layouts/Page.astro';
+---
+
+<Page
+	title={frontmatter.title}
+	description={frontmatter.description}
+	updatedDate={frontmatter.updatedDate ? new Date(frontmatter.updatedDate) : undefined}
+	headings={getHeadings()}
+>
+	<Content />
+</Page>

@@ -12,6 +12,7 @@ export default defineConfig({
 	site: 'https://adamshiemke.com',
 	redirects: {
 		'/blog': '/',
+		'/about': '/readme/',
 	},
 	markdown: {
 		processor: unified({ rehypePlugins: [rehypeHeadingNumbers] }),

@@ -46,8 +46,10 @@ In an `.mdx` post, import the components at the top of the file from `../../comp
 - `<Sidebar title="…">…</Sidebar>`: a boxed sidebar.
 - `<Example label="…">…</Example>`: a boxed example or prompt.
 - `<PrincipleIndex headings={props.headings} />`: an overview of the post's numbered `## 1. …` sections, linking to each.
+- `<Settings>` with `<Setting name="…" level="High" value={4}>…</Setting>` rows: a panel of named levels with a 5-step meter. A `value` above 5 overflows the meter.
+- `<Signoff>…</Signoff>`: a closing note set apart from the body.
 
-Styling conventions that need no component: an `## N. Title` heading gets a numbered badge, the first paragraph after any `##` heading is set a step larger (lead with the section's point), and a bullet list whose items start with **bold text** is shown as a set of key ideas.
+Styling conventions that need no component: a `## TL;DR` heading followed by a numbered list is set as a summary card, an `## N. Title` heading gets a numbered badge, the first paragraph after any `##` heading is set a step larger (lead with the section's point), and a bullet list whose items start with **bold text** is shown as a set of key ideas.
 
 Markdown inside a component needs a blank line before and after it, or it will not render as Markdown:
 
@@ -58,6 +60,10 @@ Text with *emphasis* and a [link](https://example.com).
 
 </Sidebar>
 ```
+
+### The README page
+
+The personal README at `/readme/` is `src/content/readme.mdx`, rendered by `src/pages/readme.astro` with the `Page` layout. Edit the MDX file and change `updatedDate` in its frontmatter. `/about` redirects there.
 
 ### Code blocks
 

@@ -1,0 +1,28 @@
+---
+/**
+ * One row of a <Settings> panel: a name, a level shown as text and as a 5-step meter,
+ * and a description (the slot). A value above 5 overflows the meter on purpose.
+ */
+interface Props {
+	name: string;
+	level: string;
+	value: number;
+}
+
+const { name, level, value } = Astro.props;
+const STEPS = 5;
+const filled = Math.max(0, Math.min(value, STEPS));
+const overflow = value > STEPS;
+---
+
+<div class="setting">
+	<dt class="setting-name">{name}</dt>
+	<dd class="setting-level">
+		<span class="meter" aria-hidden="true">
+			{Array.from({ length: STEPS }, (_, i) => <span class:list={['seg', { on: i < filled }]} />)}
+			{overflow && <span class="seg on over" />}
+		</span>
+		<span class="level-text">{level}</span>
+	</dd>
+	<dd class="setting-desc"><slot /></dd>
+</div>

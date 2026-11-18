@@ -973,3 +973,184 @@ a[data-footnote-ref]:target {
 .example-body > :last-child {
 	margin-bottom: 0;
 }
+
+/* ---------- TL;DR (an h2 with id "tldr" followed by an ordered list) ---------- */
+
+.prose #tldr,
+.prose #tldr + ol {
+	background: var(--surface);
+}
+
+.prose #tldr {
+	margin: 0;
+	padding: 1.25rem 1.25rem 0.35rem;
+	border-top: 0;
+	border-radius: var(--radius) var(--radius) 0 0;
+	font-size: 0.8125rem;
+	font-weight: 750;
+	letter-spacing: 0.09em;
+	line-height: 1.4;
+	color: var(--accent);
+}
+
+.prose #tldr + ol {
+	list-style: none;
+	counter-reset: tldr;
+	margin: 0 0 1rem;
+	padding: 0.75rem 1.25rem 1.35rem;
+	border-radius: 0 0 var(--radius) var(--radius);
+}
+
+@media (min-width: 44rem) {
+	.prose #tldr,
+	.prose #tldr + ol {
+		margin-inline: -1.75rem;
+		padding-inline: 1.75rem;
+	}
+}
+
+.prose #tldr + ol > li {
+	counter-increment: tldr;
+	position: relative;
+	margin: 0 0 1rem;
+	padding-left: 2.85rem;
+}
+
+.prose #tldr + ol > li:last-child {
+	margin-bottom: 0;
+}
+
+.prose #tldr + ol > li::before {
+	content: counter(tldr);
+	position: absolute;
+	left: 0;
+	top: 0.12em;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 50%;
+	background: var(--accent-tint);
+	color: var(--accent);
+	font-family: var(--font-sans);
+	font-size: 0.9375rem;
+	font-weight: 750;
+	line-height: 1;
+}
+
+.prose #tldr + ol > li > strong:first-child {
+	display: block;
+	font-family: var(--font-sans);
+	font-size: 1.06em;
+	font-weight: 700;
+}
+
+/* ---------- Settings panel ---------- */
+
+.settings {
+	margin: 1.5rem 0 1.75rem;
+	border: 1px solid var(--rule);
+	border-radius: var(--radius);
+}
+
+.setting {
+	display: grid;
+	grid-template-columns: 1fr auto;
+	align-items: center;
+	gap: 0.35rem 1rem;
+	padding: 1rem 1.1rem 1.1rem;
+}
+
+.setting + .setting {
+	border-top: 1px solid var(--rule);
+}
+
+.setting dt,
+.setting dd {
+	margin: 0;
+}
+
+.setting-name {
+	font-family: var(--font-sans);
+	font-size: 1.02rem;
+	font-weight: 700;
+	line-height: 1.3;
+}
+
+.setting-level {
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	font-family: var(--font-sans);
+	font-size: 0.875rem;
+	font-weight: 650;
+	color: var(--accent);
+	white-space: nowrap;
+}
+
+.level-text {
+	order: -1;
+}
+
+.setting-desc {
+	grid-column: 1 / -1;
+	font-size: 0.94em;
+	line-height: 1.6;
+	color: var(--text-2);
+}
+
+/* Five steps, plus an empty slot at the end for a value that goes past the scale. */
+.meter {
+	position: relative;
+	display: inline-flex;
+	gap: 3px;
+	padding-right: calc(1rem + 3px);
+}
+
+.seg {
+	width: 1rem;
+	height: 0.5rem;
+	border-radius: 2px;
+	background: color-mix(in srgb, var(--muted) 30%, transparent);
+}
+
+.seg.on {
+	background: var(--accent);
+}
+
+.seg.over {
+	position: absolute;
+	right: -1px;
+	top: 0;
+	transform: translateY(-0.3rem) rotate(-28deg);
+	transform-origin: left center;
+}
+
+@media (max-width: 34rem) {
+	.setting {
+		grid-template-columns: 1fr;
+	}
+
+	/* Stacked rows: give the level a fixed width so the meters line up. */
+	.level-text {
+		min-width: 5.5rem;
+	}
+}
+
+/* ---------- Sign-off ---------- */
+
+.signoff {
+	margin: 3.5rem 0 0;
+	padding: 1.1rem 1.25rem;
+	border: 1px dashed color-mix(in srgb, var(--muted) 55%, transparent);
+	border-radius: var(--radius);
+	font-family: var(--font-sans);
+	font-size: 0.97rem;
+	line-height: 1.6;
+	color: var(--text-2);
+}
+
+.prose .signoff > :last-child {
+	margin-bottom: 0;
+}
