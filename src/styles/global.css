@@ -53,67 +53,77 @@
    or when the system prefers dark and they haven't picked light. Keep the two blocks in sync. */
 @media (prefers-color-scheme: dark) {
 	:root:not([data-theme='light']) {
-		--bg: #1b1711;
-		--surface: #252017;
-		--text: #ebe2cf;
-		--text-2: #cfc4ad;
-		--muted: #a3967f;
-		--rule: #3c3428;
-		--accent: #e2805f;
-		--accent-soft: rgba(226, 128, 95, 0.5);
-		--accent-tint: rgba(226, 128, 95, 0.1);
-		--accent-tint-2: rgba(226, 128, 95, 0.28);
-		--lapis: #8fa9e6;
+		--bg: #231e18;
+		--surface: #2d2720;
+		--text: #e0d6c2;
+		--text-2: #c9bda6;
+		--muted: #a69880;
+		--rule: #443b2f;
+		--accent: #e08c68;
+		--accent-soft: rgba(224, 140, 104, 0.55);
+		--accent-tint: rgba(224, 140, 104, 0.1);
+		--accent-tint-2: rgba(224, 140, 104, 0.26);
+		--lapis: #95ade0;
 		--lapis-deep: #24427f;
-		--gold: #d6b25c;
-		--gold-soft: #8a7340;
+		--gold: #d3b062;
+		--gold-soft: #8f7845;
 		--gold-leaf: #ecd08a;
-		--mark: rgba(214, 178, 92, 0.2);
-		--pop-bg: #29231a;
+		--mark: rgba(214, 178, 92, 0.26);
+		--pop-bg: #2f2921;
 		--shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
 
-		--dr-ink: #cdbf9f;
-		--dr-paper: #3a3226;
+		--dr-ink: #c8b99b;
+		--dr-paper: #3f372b;
 		--dr-steel: #7f7a6e;
 		--dr-skin: #c9a988;
-		--dr-red: #c9573a;
-		--dr-blue: #5a7cc4;
-		--dr-gold: #d6b25c;
+		--dr-red: #c45c40;
+		--dr-blue: #5f7ebf;
+		--dr-gold: #cba757;
 		--dr-green: #8aa565;
 		--dr-brown: #a7845a;
+
+		/* Quieter margin ornaments: bright pigment on a dark page pulls the eye off the text. */
+		--ornament-opacity: 0.55;
+		/* Light type on a dark page looks heavier and crowds together; open it up a touch. */
+		--tracking: 0.012em;
 		color-scheme: dark;
 	}
 }
 
 :root[data-theme='dark'] {
-	--bg: #1b1711;
-	--surface: #252017;
-	--text: #ebe2cf;
-	--text-2: #cfc4ad;
-	--muted: #a3967f;
-	--rule: #3c3428;
-	--accent: #e2805f;
-	--accent-soft: rgba(226, 128, 95, 0.5);
-	--accent-tint: rgba(226, 128, 95, 0.1);
-	--accent-tint-2: rgba(226, 128, 95, 0.28);
-	--lapis: #8fa9e6;
+	--bg: #231e18;
+	--surface: #2d2720;
+	--text: #e0d6c2;
+	--text-2: #c9bda6;
+	--muted: #a69880;
+	--rule: #443b2f;
+	--accent: #e08c68;
+	--accent-soft: rgba(224, 140, 104, 0.55);
+	--accent-tint: rgba(224, 140, 104, 0.1);
+	--accent-tint-2: rgba(224, 140, 104, 0.26);
+	--lapis: #95ade0;
 	--lapis-deep: #24427f;
-	--gold: #d6b25c;
-	--gold-soft: #8a7340;
+	--gold: #d3b062;
+	--gold-soft: #8f7845;
 	--gold-leaf: #ecd08a;
-	--mark: rgba(214, 178, 92, 0.2);
-	--pop-bg: #29231a;
+	--mark: rgba(214, 178, 92, 0.26);
+	--pop-bg: #2f2921;
 	--shadow: 0 12px 32px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
 
-	--dr-ink: #cdbf9f;
-	--dr-paper: #3a3226;
+	--dr-ink: #c8b99b;
+	--dr-paper: #3f372b;
 	--dr-steel: #7f7a6e;
 	--dr-skin: #c9a988;
-	--dr-red: #c9573a;
-	--dr-blue: #5a7cc4;
-	--dr-gold: #d6b25c;
+	--dr-red: #c45c40;
+	--dr-blue: #5f7ebf;
+	--dr-gold: #cba757;
 	--dr-green: #8aa565;
 	--dr-brown: #a7845a;
+
+	/* Quieter margin ornaments: bright pigment on a dark page pulls the eye off the text. */
+	--ornament-opacity: 0.55;
+	/* Light type on a dark page looks heavier and crowds together; open it up a touch. */
+	--tracking: 0.012em;
 	color-scheme: dark;
 }
 
@@ -145,6 +155,7 @@ body {
 	font-family: var(--font-serif);
 	font-size: 1.1875rem;
 	line-height: 1.65;
+	letter-spacing: var(--tracking, normal);
 	font-optical-sizing: auto;
 	font-kerning: normal;
 	-webkit-font-smoothing: antialiased;
@@ -1301,6 +1312,7 @@ a[data-footnote-ref]:target {
 		height: 230px;
 		background: url('/ornaments/vinet.svg') 0 -20px / 26px auto no-repeat;
 		mask: linear-gradient(#000 55%, transparent);
+		opacity: var(--ornament-opacity, 1);
 		pointer-events: none;
 	}
 }
@@ -1324,6 +1336,7 @@ a[data-footnote-ref]:target {
 		left: calc(100% + 15.5rem);
 		width: 30px;
 		background: url('/ornaments/vinet.svg') 0 0 / 30px auto repeat-y;
+		opacity: var(--ornament-opacity, 1);
 		pointer-events: none;
 	}
 }
